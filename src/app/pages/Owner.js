@@ -1,13 +1,18 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
+import data from '../database.json'
+var owner = data.owner;
 
 export default function Owner() {
-    return(
+    return (
         <div>
-            <div className="row">
-            Runner
-      </div>
-      <br/>
+            <div className="row" >
+                <p className="btn-success" >
+                    {owner.name}
+                </p>
+
+            </div>
+            <br />
 
             <div className="row">
                 <div className="col-xl-4">

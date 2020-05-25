@@ -1,0 +1,14 @@
+{
+    "name": "demo1",
+    "version": "6.1.5",
+    "private": true,
+    "owner":
+    {
+        "name": "James",
+        "location": "",
+        "curbsideLocation": "",
+        "storeHours": "",
+        "curbsideHours": ""
+        
+    }    
+}
