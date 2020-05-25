@@ -1,39 +1,57 @@
-/**
- * Entry application component used to compose providers and render Routes.
- * */
+import React from 'react';
+import Customer from './app/pages/Customer'
+import Owner from './app/pages/Owner'
+import Runner from './app/pages/Runner'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
-import { PersistGate } from "redux-persist/integration/react";
-import { LastLocationProvider } from "react-router-last-location";
-import { Routes } from "./app/router/Routes";
-import { I18nProvider, LayoutSplashScreen, ThemeProvider } from "./_metronic";
-
-export default function App({ store, persistor, basename }) {
+function App() {
   return (
-    /* Provide Redux store */
-    <Provider store={store}>
-      {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
-      <PersistGate persistor={persistor} loading={<LayoutSplashScreen />}>
-        {/* Add high level `Suspense` in case if was not handled inside the React tree. */}
-        <React.Suspense fallback={<LayoutSplashScreen />}>
-          {/* Override `basename` (e.g: `homepage` in `package.json`) */}
-          <BrowserRouter basename={basename}>
-            {/*This library only returns the location that has been active before the recent location change in the current window lifetime.*/}
-            <LastLocationProvider>
-              {/* Provide Metronic theme overrides. */}
-              <ThemeProvider>
-                {/* Provide `react-intl` context synchronized with Redux state.  */}
-                <I18nProvider>
-                  {/* Render routes with provided `Layout`. */}
-                  <Routes />
-                </I18nProvider>
-              </ThemeProvider>
-            </LastLocationProvider>
-          </BrowserRouter>
-        </React.Suspense>
-      </PersistGate>
-    </Provider>
+    <Router>
+      <div>
+        This is the home page with a bar at the top
+        <ul>
+          <li>
+            <Link to="/customer">Customer</Link>
+          </li>
+          <li>
+            <Link to="/runner">Runner</Link>
+          </li>  
+          <li>
+            <Link to="/owner">Owner</Link>
+          </li>
+        </ul>
+
+        <hr />
+
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+          </Route>
+          <Route path="/customer">
+            <Customer />
+          </Route>
+          <Route path="/owner">
+            <Owner />
+          </Route> 
+          <Route path="/runner">
+            <Runner />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
+
+
+export default App;
