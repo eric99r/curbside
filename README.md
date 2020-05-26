@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+--Note: When *setting up yarn with react* you might encounter a network timeout issue when your internet connection
+--is otherwise okay.  This is likely a result of yarn timing out too quickly, and can be fixed by adding a flag
+--to raise the timeout value for the command: "--network-timeout 600000" raises the timeout to ten minutes, for example.
+--(yarn add react --network-timeout 600000)
+--To set this globally, run "yarn config set network-timeout 600000 -g".
+
+
 ## Available Scripts
 
 In the project directory, you can run:
