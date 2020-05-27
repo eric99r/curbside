@@ -2,56 +2,49 @@
 @import "~highlight.js/styles/googlecode.css";
 @import "~perfect-scrollbar/css/perfect-scrollbar.css";
 
-/* The following line can be included in a src/App.scss */
+// Theme Styles
+@import "./_metronic/_assets/sass/style.react.scss";
 
-@import "~bootstrap/scss/bootstrap";
+// Default Layout Skins
+@import "./_metronic/_assets/sass/global/layout/header/skins/base/light.scss";
+@import "./_metronic/_assets/sass/global/layout/header/skins/menu/light.scss";
+@import "./_metronic/_assets/sass/global/layout/brand/skins/dark.scss";
+@import "./_metronic/_assets/sass/global/layout/aside/skins/dark.scss";
 
-/* The following line can be included in your src/index.js or App.js file */
+// Header Skins
+.kt-header-base-light {
+    @import "./_metronic/_assets/sass/global/layout/header/skins/base/light.scss";
+}
 
+.kt-header-base-dark {
+    @import "./_metronic/_assets/sass/global/layout/header/skins/base/dark.scss";
+}
 
-// // Theme Styles
-// @import "./_metronic/_assets/sass/style.react.scss";
+// Header Menu Skins
+.kt-header-menu-light {
+    @import "./_metronic/_assets/sass/global/layout/header/skins/menu/light.scss";
+}
+.kt-header-menu-dark {
+    @import "./_metronic/_assets/sass/global/layout/header/skins/menu/dark.scss";
+}
 
-// // Default Layout Skins
-// @import "./_metronic/_assets/sass/global/layout/header/skins/base/light.scss";
-// @import "./_metronic/_assets/sass/global/layout/header/skins/menu/light.scss";
-// @import "./_metronic/_assets/sass/global/layout/brand/skins/dark.scss";
-// @import "./_metronic/_assets/sass/global/layout/aside/skins/dark.scss";
+// Brand Skins
+.kt-brand-dark {
+  @import "./_metronic/_assets/sass/global/layout/brand/skins/dark.scss";
+}
 
-// // Header Skins
-// .kt-header-base-light {
-//     @import "./_metronic/_assets/sass/global/layout/header/skins/base/light.scss";
-// }
+.kt-brand-light {
+  @import "./_metronic/_assets/sass/global/layout/brand/skins/light.scss";
+}
 
-// .kt-header-base-dark {
-//     @import "./_metronic/_assets/sass/global/layout/header/skins/base/dark.scss";
-// }
+// Aside skins
+.kt-aside-dark {
+  @import "./_metronic/_assets/sass/global/layout/aside/skins/dark.scss";
+}
 
-// // Header Menu Skins
-// .kt-header-menu-light {
-//     @import "./_metronic/_assets/sass/global/layout/header/skins/menu/light.scss";
-// }
-// .kt-header-menu-dark {
-//     @import "./_metronic/_assets/sass/global/layout/header/skins/menu/dark.scss";
-// }
-
-// // Brand Skins
-// .kt-brand-dark {
-//   @import "./_metronic/_assets/sass/global/layout/brand/skins/dark.scss";
-// }
-
-// .kt-brand-light {
-//   @import "./_metronic/_assets/sass/global/layout/brand/skins/light.scss";
-// }
-
-// // Aside skins
-// .kt-aside-dark {
-//   @import "./_metronic/_assets/sass/global/layout/aside/skins/dark.scss";
-// }
-
-// .kt-aside-light {
-//   @import "./_metronic/_assets/sass/global/layout/aside/skins/light.scss";
-// }
+.kt-aside-light {
+  @import "./_metronic/_assets/sass/global/layout/aside/skins/light.scss";
+}
 
 // Web Icon fonts
 // @import "~socicon/css/socicon.css";
@@ -59,11 +52,6 @@
 // @import "./_metronic/_assets/plugins/line-awesome/css/line-awesome.css";
 // @import "./_metronic/_assets/plugins/flaticon/flaticon.css";
 // @import "./_metronic/_assets/plugins/flaticon2/flaticon.css";
-
-
-
-
-
 
 
 @-webkit-keyframes fadeInUpContent {
@@ -98,8 +86,3 @@
   -webkit-animation-name: fadeInUpContent;
   animation-name: fadeInUpContent;
 }
-
-div{
-  margin:5px
-}
-
