@@ -3,6 +3,10 @@ import { useSelector } from "react-redux";
 import data from '../database.json'
 var owner = data.owner;
 
+
+
+//
+
 export default function Owner() {
     return (
         <div>

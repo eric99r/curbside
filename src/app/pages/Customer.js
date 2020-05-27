@@ -5,7 +5,7 @@ export default function Customer() {
     return(
         <div>
             <div className="row">
-            Runner
+            Customer
       </div>
       <br/>
             <div className="row">

@@ -1,14 +1,47 @@
 {
-    "name": "demo1",
-    "version": "6.1.5",
-    "private": true,
-    "owner":
-    {
-        "name": "James",
+    "store": {
+        "OwnerName": "James",
         "location": "",
         "curbsideLocation": "",
         "storeHours": "",
-        "curbsideHours": ""
-        
-    }    
+        "curbsideHours": [
+            {
+                "day": "Sunday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },  {
+                "day": "Monday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },  {
+                "day": "Tuesday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },  {
+                "day": "Wednesday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },  {
+                "day": "Thursday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },  {
+                "day": "Friday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            },
+            {
+                "day": "Saturday",
+                "timeOpen": "1:45 PM",
+                "timeClosed": "5:00 PM",
+                "willNotOpen": false
+            }
+        ]
+    }
 }
