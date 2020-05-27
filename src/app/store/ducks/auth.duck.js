@@ -18,37 +18,36 @@ const initialAuthState = {
 };
 
 export const reducer = persistReducer(
-  { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
-  (state = initialAuthState, action) => {
-    switch (action.type) {
-      case actionTypes.Login: {
-        const { authToken } = action.payload;
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('user', JSON.stringify(authToken));
-        return { ...state, authToken: authToken.token, user: authToken };
+    { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
+    (state = initialAuthState, action) => {
+      switch (action.type) {
+        case actionTypes.Login: {
+          const { authToken } = action.payload;
+
+          return { authToken, user: undefined };
+        }
+
+        case actionTypes.Register: {
+          const { authToken } = action.payload;
+
+          return { authToken, user: undefined };
+        }
+
+        case actionTypes.Logout: {
+          routerHelpers.forgotLastLocation();
+          return initialAuthState;
+        }
+
+        case actionTypes.UserLoaded: {
+          const { user } = action.payload;
+
+          return { ...state, user };
+        }
+
+        default:
+          return state;
       }
-
-      case actionTypes.Register: {
-        const { authToken } = action.payload;
-
-        return { authToken, user: undefined };
-      }
-
-      case actionTypes.Logout: {
-        routerHelpers.forgotLastLocation();
-        return initialAuthState;
-      }
-
-      case actionTypes.UserLoaded: {
-        const { user } = action.payload;
-
-        return { ...state, user };
-      }
-
-      default:
-        return state;
     }
-  }
 );
 
 export const actions = {
@@ -64,7 +63,7 @@ export const actions = {
 
 export function* saga() {
   yield takeLatest(actionTypes.Login, function* loginSaga() {
-    //  yield put(actions.requestUser());
+    yield put(actions.requestUser());
   });
 
   yield takeLatest(actionTypes.Register, function* registerSaga() {
