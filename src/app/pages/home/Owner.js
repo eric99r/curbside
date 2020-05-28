@@ -11,7 +11,7 @@ function Owner(props) {
 
   useEffect(() => {
       console.log("Onboarding page init", props);
-      props.changeOwner("test");
+//      props.changeOwner("test");
   });
 
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
