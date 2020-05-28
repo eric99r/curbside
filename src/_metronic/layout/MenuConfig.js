@@ -5,19 +5,24 @@ export default {
       {
         title: "Customer",
         root: true,
-        page: "customer"
+        page: "customer",
       },
       {
         title: "Runner",
         root: true,
-        page: "runner"
+        page: "runner",
       },
       {
         title: "Owner",
         root: true,
-        page: "owner"
-      }
-    ]
+        page: "owner",
+      },
+      {
+        title: "OrderQueue",
+        root: true,
+        page: "OrderQueue",
+      },
+    ],
   },
   aside: {
     self: {},
@@ -26,18 +31,23 @@ export default {
         title: "Customer",
         root: true,
         page: "customer",
-        bullet: "dot"
+        bullet: "dot",
       },
       {
         title: "Runner",
         root: true,
-        page: "runner"
+        page: "runner",
       },
       {
         title: "Owner",
         root: true,
-        page: "owner"
-      }
-    ]
-  }
+        page: "owner",
+      },
+      {
+        title: "OrderQueue",
+        root: true,
+        page: "OrderQueue",
+      },
+    ],
+  },
 };
