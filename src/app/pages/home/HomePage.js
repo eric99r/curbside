@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Builder from "./Builder";
-import Dashboard from "./Dashboard";
 import Runner from "./Runner";
 import Owner from "./Owner";
 import Customer from "./Customer";
@@ -22,8 +20,6 @@ export default function HomePage() {
           /* Redirect from root URL to /dashboard. */
           <Redirect exact from="/" to="/dashboard" />
         }
-        <Route path="/builder" component={Builder} />
-        <Route path="/dashboard" component={Dashboard} />
         <Route path="/runner" component={Runner} />
         <Route path="/owner" component={Owner} />
         <Route path="/customer" component={Customer} />
