@@ -1,24 +1,12 @@
 import React, { useMemo } from "react";
-import { useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import {
   Portlet,
-  PortletBody,
-  PortletHeader,
-  PortletHeaderToolbar
-} from "../../partials/content/Portlet";
+  PortletBody} from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
 import QuickStatsChart from "../../widgets/QuickStatsChart";
-import OrderStatisticsChart from "../../widgets/OrderStatisticsChart";
-import OrdersWidget from "../../widgets/OrdersWidget";
-import SalesBarChart from "../../widgets/SalesBarChart";
-import DownloadFiles from "../../widgets/DownloadFiles";
-import NewUsers from "../../widgets/NewUsers";
-import LatestUpdates from "../../widgets/LatestUpdates";
-import BestSellers from "../../widgets/BestSellers";
-import RecentActivities from "../../widgets/RecentActivities";
-import PortletHeaderDropdown from "../../partials/content/CustomDropdowns/PortletHeaderDropdown";
 
-export default function Customer() {
+function Customer() {
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
     state => ({
       brandColor: metronic.builder.selectors.getConfig(
@@ -150,3 +138,11 @@ export default function Customer() {
     </>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+//    business: state.business.store,
+  }
+}
+
+export default connect(mapStateToProps)(Customer);

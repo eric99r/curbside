@@ -13,7 +13,6 @@ import {
   PortletHeaderToolbar
 } from "../../partials/content/Portlet";
 import { CodeBlock } from "../../partials/content/CodeExample";
-import Notice from "../../partials/content/Notice";
 
 const localStorageActiveTabKey = "builderActiveTab";
 export default function Builder() {
