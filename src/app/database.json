@@ -1,92 +1,121 @@
 {
-    "store": {
-        "id": 2344,
-        "owner": "James",
-        "location": "College Station, TX",
-        "curbsideLocation": "In front of Circle Drive",
-        "storeHours": [
-            {
-                "day": "Sunday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Monday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Tuesday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Wednesday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Thursday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Friday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },
-            {
-                "day": "Saturday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            }
-        ],
-        "curbsideHours": [
-            {
-                "day": "Sunday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Monday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Tuesday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Wednesday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Thursday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Friday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },
-            {
-                "day": "Saturday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            }
-        ]
-    },
-    "runners": [
-        
+  "store": {
+    "id": 2344,
+    "owner": "James",
+    "location": "College Station, TX",
+    "curbsideLocation": "In front of Circle Drive",
+    "storeHours": [
+      {
+        "day": "Sunday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Monday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Tuesday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Wednesday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Thursday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Friday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Saturday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      }
     ],
-    "orders": [
-
+    "curbsideHours": [
+      {
+        "day": "Sunday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Monday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Tuesday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Wednesday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Thursday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Friday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Saturday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      }
     ]
+  },
+  "runners": [],
+  "orders": [
+    {
+      "orderNumber": "#1",
+      "pickupTime": "1:45pm",
+      "name": "Michael",
+      "items": [
+        {
+          "quantity": "1",
+          "itemName": "Book"
+        }
+      ]
+    },
+    {
+      "orderNumber": "#2",
+      "pickupTime": "3:00pm",
+      "name": "Eric",
+      "items": [
+        {
+          "quantity": "1",
+          "itemName": "Book"
+        }
+      ]
+    }
+  ]
 }
