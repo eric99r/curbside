@@ -12,53 +12,80 @@ import database from '../../database.json';
 
 // Actions
 export const actionTypes = {
-  EditStoreHours: "[EditStoreHours] Action",
-  EditCurbsideHours: "[EditCurbsideHours] Action",
-  ChangeOwner: "[ChangeOwner] Action"
+  editStoreHours: "[EditStoreHours] Action",
+  editCurbsideHours: "[EditCurbsideHours] Action",
+  changeOwner: "[ChangeOwner] Action"
 };
 
+//What you'll access in the pages you're mapping the reducer to
 const initialState = {
-  store: database.store
+  store: database.store,
+  lastUpdated: undefined
 };
 
 export const reducer = persistReducer(
-    { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
-    (state = initialState, action) => {
-      switch (action.type) {
-        case actionTypes.editCurbsideHours: {
-          //const { user } = action.payload;
-          return { ...state, undefined};
-        }
-
-        case actionTypes.editStoreHours: {
-          return { ...state, undefined};
-        }
-
-        // case actionTypes.ChangeOwner: {
-        //   const { owner } = action.payload;
-        //   return { authToken, user: undefined };
-        // }
-
-        case actionTypes.ChangeOwner: {
-          const { owner } = action.payload;
-          console.log("test change owner" + owner)
+  { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
+  (state = initialState, action) => {
+    switch (action.type) {
+      //GOOD Example of changing a value in an array (By individual value)
+      case actionTypes.editCurbsideHours: {
+      
+        const { day, startTime } = action.payload;
+        console.log("state: ", state);
+        console.log("payload day: " + day)
+        console.log("payload startTime: " + startTime)
+        let newState = state;
+        const newStoreHours = newState.store.curbsideHours.map(d => d.day === day ? { ...d, timeOpen: startTime} : d);
+        newState.store.storeHours = newStoreHours;
+        newState.lastUpdated = Date.now();
+        return newState;
+      }           
+      //BEST Example of changing a value in an array (By Object) 
+      case actionTypes.editStoreHours: {
+          const { day } = action.payload;
+          console.log("state: ", state);
+          console.log("payload: " + day)
           let newState = state;
-          if (state.business) {
-              newState = { ...newState, owner }
-          }
+            newState =
+            {
+              ...newState,
+              store: {
+                ...newState.store,
+                storeHours: newState.store.storeHours.map(d => d.day === day.day ? day : d )
+              }
+            }
+            newState.lastUpdated = Date.now();
           return newState;
-        }
-        default:
-          return state;
+        }     
+
+      //BEST Example of changing a value (By Object)  
+      case actionTypes.changeOwner: {
+        const { owner } = action.payload;
+        console.log("payload: " + owner)
+        let newState = state;
+          newState =
+          {
+            ...newState,
+            store: {
+              ...newState.store, owner
+            }
+          }
+          newState.lastUpdated = Date.now();
+        return newState;
       }
+
+      default:
+        return state;
     }
+  }
 );
 
 export const actions = {
-  editCurbsideHours: day => ({ type: actionTypes.editCurbsideHours, payload: { day } }),
+  //Multiple parameter actions
+  editCurbsideHours: (day, startTime) => ({ type: actionTypes.editCurbsideHours, payload: { day, startTime } }),
+  //Single paramater actions
   editStoreHours: day => ({ type: actionTypes.editStoreHours, payload: { day } }),
   changeOwner: owner => ({ type: actionTypes.changeOwner, payload: { owner } })
-  
 };
 
 export function* saga() {

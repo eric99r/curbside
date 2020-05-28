@@ -10,9 +10,22 @@ function Owner(props) {
   const {  business } = props;
 
   useEffect(() => {
-      console.log("Onboarding page init", props);
-//      props.changeOwner("test");
-  });
+      console.log("Owner props init", props);
+      props.changeOwner("test");
+      props.editStoreHours(
+        {
+          day: "Sunday",
+          timeClosed: "5:55 PM",
+          timeOpen: "5:00 AM",
+          willNotOpen: false
+        })
+        props.editCurbsideHours("Sunday","5:55 PM");
+        
+      }, []);
+
+  useEffect(() => {
+    console.log("After state update", business);
+  }, [business.lastUpdated]);
 
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
     state => ({
@@ -128,10 +141,10 @@ function Owner(props) {
         </div>
 
         <div className="col-xl-6">
-        <p>{business.id}</p>
-        <p>{business.owner}</p>
-          <p>{business.location}</p>
-          <p>{business.curbsideLocation}</p>
+        <p>{props.business.store.id}</p>
+        <p>{business.store.owner}</p>
+          <p>{business.store.location}</p>
+          <p>{business.store.curbsideLocation}</p>
         </div>
       </div>
 
@@ -151,7 +164,7 @@ function Owner(props) {
 
 function mapStateToProps(state) {
   return {
-    business: state.business.store,
+    business: state.business,
   }
 }
 
