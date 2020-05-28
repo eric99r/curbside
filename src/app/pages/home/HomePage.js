@@ -3,9 +3,8 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Runner from "./Runner";
 import Owner from "./Owner";
 import Customer from "./Customer";
+import OrderQueue from "./OrderQueue";
 import { LayoutSplashScreen } from "../../../_metronic";
-
-
 
 export default function HomePage() {
   // useEffect(() => {
@@ -23,6 +22,7 @@ export default function HomePage() {
         <Route path="/runner" component={Runner} />
         <Route path="/owner" component={Owner} />
         <Route path="/customer" component={Customer} />
+        <Route path="/orderQueue" component={OrderQueue} />
         <Redirect to="/error/error-v1" />
       </Switch>
     </Suspense>
