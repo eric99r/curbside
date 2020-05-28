@@ -27,7 +27,7 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 
-export default function Customer() {
+function Customer() {
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
     state => ({
       brandColor: metronic.builder.selectors.getConfig(
