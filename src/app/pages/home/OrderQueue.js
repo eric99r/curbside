@@ -12,12 +12,12 @@ function OrderQueue(props) {
     return (
       <Card
         tag="a"
-        onClick={() => history.push("/orderDetails?orderId=" + order.orderId)}
+        onClick={() => history.push("/orderDetails?orderId=" + order.orderNumber)}
       >
         <Card.Body>
           <div>
             <Card.Text>
-              {order.pickupTime} {"Order:#" + order.orderId} {order.name}
+              {order.pickupTime} {"Order:#" + order.orderNumber} {order.name}
             </Card.Text>
           </div>
         </Card.Body>
