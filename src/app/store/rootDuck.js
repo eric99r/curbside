@@ -12,6 +12,7 @@ export const rootReducer = combineReducers({
   builder: metronic.builder.reducer,
   business: business.reducer,
   orders: orders.reducer
+  
 });
 
 export function* rootSaga() {
