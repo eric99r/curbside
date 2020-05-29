@@ -17,6 +17,11 @@ export default {
         root: true,
         page: "OrderQueue",
       },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      }
     ],
   },
   aside: {
