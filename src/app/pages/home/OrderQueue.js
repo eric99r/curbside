@@ -17,7 +17,7 @@ function OrderQueue(props) {
         <Card.Body>
           <div>
             <Card.Text>
-              {order.pickupTime} {"Order:#" + order.orderId} {order.name}
+              {order.pickupTime} {"Order:#" + order.orderNumber} {order.name}
             </Card.Text>
           </div>
         </Card.Body>
