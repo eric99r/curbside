@@ -1,30 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
 import database from "../../database.json";
-import RunnerNavBar from '../../partials/content/RunnerNavBar'
+import RunnerNavBar from "../../partials/content/RunnerNavBar";
+import { Card } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-function OrderQueue() {
+function OrderQueue(props) {
   const order = database.orders;
+  const history = useHistory();
   const allorders = order.map((order) => {
     return (
-      <li style={{ listStyleType: "none" }}>
-        <div
-          className="col-sm-12 col-md-2 col-lg-8"
-          style={{ backgroundColor: "lightblue" }}
-        >
-          {order.pickupTime}
-          {order.orderNumber}
-          {order.name}
-        </div>
-      </li>
+      <Card
+        tag="a"
+        onClick={() => history.push("/orderDetails?orderId=" + order.orderId)}
+      >
+        <Card.Body>
+          <div>
+            <Card.Text>
+              {order.pickupTime} {"Order:#" + order.orderId} {order.name}
+            </Card.Text>
+          </div>
+        </Card.Body>
+      </Card>
     );
   });
   return (
     <>
       <div>
-      <RunnerNavBar/>
+        <RunnerNavBar />
 
-      <h1>Orders in Queue</h1>
+        <h1>Orders in Queue</h1>
         <ul>{allorders}</ul>
       </div>
     </>
