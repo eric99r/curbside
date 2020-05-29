@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useMemo } from "react";
 import { connect, useSelector } from "react-redux";
 import {
@@ -75,9 +76,6 @@ function Customer() {
                     <div className="kt-separator kt-separator--dashed"></div>
 
                       <Form>
-
-
-
                         <Form.Group controlId="exampleForm.ControlTextarea1">
 
                           <Form.Label>Pickup Date</Form.Label>

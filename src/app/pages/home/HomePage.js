@@ -1,9 +1,13 @@
 import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Runner from "./Runner";
 import Owner from "./Owner";
 import Customer from "./Customer";
 import OrderQueue from "./OrderQueue";
+import OrderPrepared from "./OrderPrepared";
+import OrderRunning from "./OrderRunning";
+import OrderCompleted from "./OrderCompleted";
+import OrderDetails from "./OrderDetails";
+import OrderSearch from "./OrderSearch";
 import { LayoutSplashScreen } from "../../../_metronic";
 
 export default function HomePage() {
@@ -19,10 +23,14 @@ export default function HomePage() {
           /* Redirect from root URL to /dashboard. */
           <Redirect exact from="/" to="/dashboard" />
         }
-        <Route path="/runner" component={Runner} />
         <Route path="/owner" component={Owner} />
         <Route path="/customer" component={Customer} />
         <Route path="/orderQueue" component={OrderQueue} />
+        <Route path="/orderPrepared" component={OrderPrepared} />
+        <Route path="/orderRunning" component={OrderRunning} />
+        <Route path="/orderCompleted" component={OrderCompleted} />
+        <Route path="/orderDetails" component={OrderDetails} />
+        <Route path="/orderSearch" component={OrderSearch} />
         <Redirect to="/error/error-v1" />
       </Switch>
     </Suspense>

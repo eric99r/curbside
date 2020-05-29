@@ -1,6 +1,7 @@
-import React, { useMemo, useEffect } from "react";
-import { connect, useSelector } from "react-redux";
+import React from "react";
+import { connect } from "react-redux";
 import database from "../../database.json";
+import RunnerNavBar from '../../partials/content/RunnerNavBar'
 
 function OrderQueue() {
   const order = database.orders;
@@ -21,7 +22,9 @@ function OrderQueue() {
   return (
     <>
       <div>
-        <p style={{ textAlign: "center" }}>Orders in Queue</p>
+      <RunnerNavBar/>
+
+      <h1>Orders in Queue</h1>
         <ul>{allorders}</ul>
       </div>
     </>

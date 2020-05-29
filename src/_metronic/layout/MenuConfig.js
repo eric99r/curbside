@@ -8,11 +8,6 @@ export default {
         page: "customer",
       },
       {
-        title: "Runner",
-        root: true,
-        page: "runner",
-      },
-      {
         title: "Owner",
         root: true,
         page: "owner",
@@ -32,11 +27,6 @@ export default {
         root: true,
         page: "customer",
         bullet: "dot",
-      },
-      {
-        title: "Runner",
-        root: true,
-        page: "runner",
       },
       {
         title: "Owner",
