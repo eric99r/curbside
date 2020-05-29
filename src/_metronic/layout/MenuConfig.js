@@ -8,11 +8,6 @@ export default {
         page: "customer",
       },
       {
-        title: "Runner",
-        root: true,
-        page: "runner",
-      },
-      {
         title: "Owner",
         root: true,
         page: "owner",
@@ -22,6 +17,11 @@ export default {
         root: true,
         page: "OrderQueue",
       },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      }
     ],
   },
   aside: {
@@ -34,11 +34,6 @@ export default {
         bullet: "dot",
       },
       {
-        title: "Runner",
-        root: true,
-        page: "runner",
-      },
-      {
         title: "Owner",
         root: true,
         page: "owner",
@@ -46,8 +41,13 @@ export default {
       {
         title: "OrderQueue",
         root: true,
-        page: "OrderQueue",
+        page: "OrderQueue"
       },
-    ],
-  },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      }
+    ]
+  }
 };

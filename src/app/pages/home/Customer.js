@@ -1,22 +1,12 @@
-import React, { useMemo } from "react";
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
   PortletBody} from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
-import QuickStatsChart from "../../widgets/QuickStatsChart";
-import OrderStatisticsChart from "../../widgets/OrderStatisticsChart";
-import OrdersWidget from "../../widgets/OrdersWidget";
-import SalesBarChart from "../../widgets/SalesBarChart";
-import DownloadFiles from "../../widgets/DownloadFiles";
-import NewUsers from "../../widgets/NewUsers";
-import LatestUpdates from "../../widgets/LatestUpdates";
-import BestSellers from "../../widgets/BestSellers";
-import RecentActivities from "../../widgets/RecentActivities";
-import PortletHeaderDropdown from "../../partials/content/CustomDropdowns/PortletHeaderDropdown";
 
-
-import { Button, Form, InputGroup, Col, Row } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import {
   Dropdown,
@@ -50,7 +40,6 @@ function Customer() {
   );
 
 
-
   return (
     <>
       <div className="row">
@@ -75,9 +64,6 @@ function Customer() {
                     <div className="kt-separator kt-separator--dashed"></div>
 
                       <Form>
-
-
-
                         <Form.Group controlId="exampleForm.ControlTextarea1">
 
                           <Form.Label>Pickup Date</Form.Label>

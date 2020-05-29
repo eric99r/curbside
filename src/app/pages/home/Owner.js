@@ -6,8 +6,7 @@ import QuickStatsChart from "../../widgets/QuickStatsChart";
 import * as business from "../../store/ducks/business.duck";
 
 function Owner(props) {
-
-  const {  business } = props;
+  const { business } = props;
 
   useEffect(() => {
       console.log("Owner props init", props);
@@ -19,8 +18,7 @@ function Owner(props) {
           timeOpen: "5:00 AM",
           willNotOpen: false
         })
-        props.editCurbsideHours("Sunday","5:55 PM");
-        
+        props.editCurbsideHours("Sunday","9:55 PM");
       }, []);
 
   useEffect(() => {
