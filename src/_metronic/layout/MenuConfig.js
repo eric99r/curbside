@@ -17,6 +17,11 @@ export default {
         root: true,
         page: "OrderQueue",
       },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      }
     ],
   },
   aside: {
@@ -36,8 +41,13 @@ export default {
       {
         title: "OrderQueue",
         root: true,
-        page: "OrderQueue",
+        page: "OrderQueue"
       },
-    ],
-  },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      }
+    ]
+  }
 };
