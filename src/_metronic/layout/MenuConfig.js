@@ -16,6 +16,11 @@ export default {
         title: "Owner",
         root: true,
         page: "owner"
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
       }
     ]
   },
@@ -37,6 +42,11 @@ export default {
         title: "Owner",
         root: true,
         page: "owner"
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
       }
     ]
   }
