@@ -23,13 +23,13 @@ class HMenu extends React.Component {
   ktMenuCommonRef = React.createRef();
 
   getHeaderLogo() {
-    let result = "follett_logo_detail.jpeg";
+    let result = "logo-light.png";
     console.log("this.props.headerSelfSkin", this.props.headerSelfSkin);
     if (this.props.headerSelfSkin && this.props.headerSelfSkin !== "dark") {
-      result = "follett_logo_detail.jpeg";
+      result = "logo-light.png";
     }
 
-    return toAbsoluteUrl(`/src/_metronic/_assets/${result}`);
+    return toAbsoluteUrl(`/media/logos/${result}`);
   }
 
   get currentUrl() {
