@@ -50,8 +50,9 @@ function Customer() {
                 <PortletBody fluid={true}>
                   {/* <!--kt-portlet--height-fluid-half--> */}
 
-                  <div class="kt-section">
-                    <span classname="kt-section__sub">
+                  <div className="kt-section">
+                    
+                    <span className="kt-section__sub">
                     
                       <h1>Curbside Pickup</h1>
                       Order status:

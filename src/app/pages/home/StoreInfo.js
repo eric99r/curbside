@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
@@ -67,7 +68,7 @@ function StoreInfo(props) {
                   {/* <!--kt-portlet--height-fluid-half--> */}
 
                   <div class="kt-section">
-                    <span classname="kt-section__sub">
+                    <span className="kt-section__sub">
                     
                       <h1>Store Information</h1>
                     </span>

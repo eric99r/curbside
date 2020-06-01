@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useMemo, useEffect } from "react";
 import { connect, useSelector } from "react-redux";
 import { Portlet, PortletBody} from "../../partials/content/Portlet";
@@ -23,7 +24,7 @@ function Owner(props) {
 
   useEffect(() => {
     console.log("After state update", business);
-  }, [business.lastUpdated]);
+  }, [business, business.lastUpdated]);
 
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
     state => ({
