@@ -25,7 +25,7 @@ export default function LabelBottomNavigation() {
   }
 
   return (
-    <div>
+    <div styles={{padding: 0 }}>
     <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
       <BottomNavigationAction value="orderQueue" icon={<ListIcon />} />
       <BottomNavigationAction value="orderPrepared" icon={<LocalMallIcon />} />

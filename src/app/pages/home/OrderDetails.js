@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import React from "react";
 import { connect } from "react-redux";
 import RunnerNavBar from '../../partials/content/RunnerNavBar'
 import { useLocation } from "react-router-dom";
@@ -9,9 +10,9 @@ function useQuery() {
 }
 function OrderDetails(props) {
     let query = useQuery();
-    const { orders } = props;
+    // eslint-disable-next-line eqeqeq 
     const thisOrder = props.orders.orders.filter(x => x.orderNumber == query.get("orderId"))
-    console.log("Owner props init", props);     
+    console.log("Order Details props init", props);     
     console.log(thisOrder)
   
 

@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Owner from "./Owner";
+import TestPage from "./TestPage";
 import Customer from "./Customer";
 import StoreInfo from "./StoreInfo";
 import OrderQueue from "./OrderQueue";
@@ -24,7 +24,7 @@ export default function HomePage() {
           /* Redirect from root URL to /customer. */
           <Redirect exact from="/" to="/customer" />
         }
-        <Route path="/owner" component={Owner} />
+        <Route path="/testPage" component={TestPage} />
         <Route path="/customer" component={Customer} />
         <Route path="/storeinfo" component={StoreInfo} />
         <Route path="/orderQueue" component={OrderQueue} />
