@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import database from "../../database.json";
 import RunnerNavBar from "../../partials/content/RunnerNavBar";
 import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-
+import * as order from "../../store/ducks/order.duck";
 function OrderQueue(props) {
-  const order = database.orders;
   const history = useHistory();
-  const allorders = order.map((order) => {
+  const { order } = props;
+
+  const orders = order.orders.filter(
+    (status) => status.orderStatus === "Queue"
+  );
+
+  useEffect(() => {
+    console.log("After state update", order);
+  }, [order, order.lastUpdated]);
+
+  const allorders = orders.map((order) => {
     return (
       <Card
         key={order.orderNumber}
@@ -40,7 +48,7 @@ function OrderQueue(props) {
         <RunnerNavBar />
 
         <h1 className={"text-center ml-5 pt-3"} style={{ color: "gray" }}>
-          Orders in Queue
+          Orders Queue
         </h1>
         <ul>{allorders}</ul>
       </div>
@@ -50,8 +58,8 @@ function OrderQueue(props) {
 
 function mapStateToProps(state) {
   return {
-    //order: state.order.orders,
+    order: state.orders,
   };
 }
 
-export default connect(mapStateToProps)(OrderQueue);
+export default connect(mapStateToProps, order.actions)(OrderQueue);
