@@ -29,6 +29,7 @@ export default function LabelBottomNavigation() {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <BottomNavigation
         value={value}
@@ -59,5 +60,16 @@ export default function LabelBottomNavigation() {
         />
       </BottomNavigation>
     </div>
+=======
+    <div styles={{padding: 0 }}>
+    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+      <BottomNavigationAction value="orderQueue" icon={<ListIcon />} />
+      <BottomNavigationAction value="orderPrepared" icon={<LocalMallIcon />} />
+      <BottomNavigationAction value="orderRunning" icon={<DirectionsRunIcon />} />
+      <BottomNavigationAction value="orderCompleted" icon={<CheckCircleOutlineIcon />} />
+      <BottomNavigationAction value="orderSearch" icon={<PhotoCameraIcon />} />
+    </BottomNavigation>
+  </div>
+>>>>>>> 943b382c9120d57bff75766c1fd15a101899657c
   );
 }

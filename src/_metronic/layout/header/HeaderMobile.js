@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -33,15 +34,6 @@ class HeaderMobile extends React.Component {
         </div>
 
         <div className="kt-header-mobile__toolbar">
-          {asideDisplay && (
-            <button
-              className="kt-header-mobile__toggler kt-header-mobile__toggler--left"
-              id="kt_aside_mobile_toggler"
-            >
-              <span />
-            </button>
-          )}
-
           {headerMenuSelfDisplay && (
             <button
               className="kt-header-mobile__toggler"
@@ -50,14 +42,6 @@ class HeaderMobile extends React.Component {
               <span />
             </button>
           )}
-
-          <button
-            ref={this.toggleButtonRef}
-            className="kt-header-mobile__topbar-toggler"
-            id="kt_header_mobile_topbar_toggler"
-          >
-            <i className="flaticon-more" />
-          </button>
         </div>
       </div>
     );

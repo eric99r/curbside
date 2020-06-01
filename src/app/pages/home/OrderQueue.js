@@ -11,6 +11,7 @@ function OrderQueue(props) {
   const allorders = order.map((order) => {
     return (
       <Card
+        key={order.orderNumber}
         tag="a"
         onClick={() =>
           history.push("/orderDetails?orderId=" + order.orderNumber)
