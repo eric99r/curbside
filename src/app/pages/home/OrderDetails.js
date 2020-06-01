@@ -23,7 +23,7 @@ function OrderDetails(props) {
       <Card key={item.itemName}>
         <Card.Body>
           <div>
-            <h4 className={"pb-3"}>
+            <h4>
               {item.quantity} - {item.itemName}
             </h4>
           </div>
@@ -33,7 +33,7 @@ function OrderDetails(props) {
   });
 
   return (
-    <div className={"text-center"}>
+    <div className={"text-center"} style={{ color: "gray" }}>
       <RunnerNavBar />
       <br />
 
@@ -47,7 +47,10 @@ function OrderDetails(props) {
 
       <br />
 
-      <div style={{ backgroundColor: "#e6ffff" }}>
+      <div
+        style={{ backgroundColor: "#e6ffff", color: "black" }}
+        className={"d-flex flex-column"}
+      >
         <h2 className={"pt-3"}>Order Id: #{thisOrder.orderNumber}</h2>
         <h2> Name: {thisOrder.name}</h2>
         {thisOrder.timeArrived && <h2>Arrived At: {thisOrder.timeArrived}</h2>}
@@ -56,11 +59,12 @@ function OrderDetails(props) {
 
         <br />
 
-        {thisOrder.items && (
-          <ul style={{ listStyleType: "none" }}>{orderItems}</ul>
-        )}
+        {thisOrder.items && <ul className={"mr-5"}>{orderItems}</ul>}
       </div>
-      <Button type="submit">{thisOrder.orderStatus}</Button>
+
+      <div className={"p-4"}>
+        <Button type="submit">{thisOrder.orderStatus}</Button>
+      </div>
     </div>
   );
 }
