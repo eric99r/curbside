@@ -10,7 +10,7 @@ function OrderPrepared() {
       <div>
       <RunnerNavBar/>
       <h1>Orders Prepared</h1>
-        <Link to="/orderDetails?orderId=123">Order 123</Link>
+        <Link to="/orderDetails?orderId=3">Order 3</Link>
 
       </div>
     </>
