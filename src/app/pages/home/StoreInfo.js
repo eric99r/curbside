@@ -67,7 +67,7 @@ function StoreInfo(props) {
                 <PortletBody fluid={true}>
                   {/* <!--kt-portlet--height-fluid-half--> */}
 
-                  <div class="kt-section">
+                  <div className="kt-section">
                     <span className="kt-section__sub">
                     
                       <h1>Store Information</h1>
@@ -76,7 +76,7 @@ function StoreInfo(props) {
                     <div className="kt-separator kt-separator--dashed"></div>
 
                       <Form>
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <Form.Group >
 
                           <Form.Label>Location</Form.Label>
                           <Form.Control as="select">
@@ -99,8 +99,8 @@ function StoreInfo(props) {
                       Store Hours
                       <ul style={{listStyleType : "none"}}>
                       {
-                        daysOfWeek.map((day)=>{
-                          return <li style={{float : "left"}}><StoreHours day={day} curbside={false}></StoreHours></li>;
+                        daysOfWeek.map((day)=>{ 
+                          return  <li key={day} style={{float : "left"}}><StoreHours key={day} day={day} curbside={false} /></li>
                         })
                       }
                       </ul>
@@ -113,11 +113,10 @@ function StoreInfo(props) {
 
                       Curbside Hours
 
-                      <ul style={{listStyleType : "none"}}>
-                      
+                      <ul style={{listStyleType : "none"}}>                      
                       {
                         daysOfWeek.map((day)=>{
-                          return <li style={{float : "left"}}><StoreHours day={day} curbside={true}></StoreHours></li>;
+                          return <li key={day}  style={{float : "left"}}><StoreHours key={day} day={day} curbside={true} /></li>
                         })
                       }
                       </ul>
