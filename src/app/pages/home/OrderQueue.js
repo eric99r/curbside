@@ -19,9 +19,11 @@ function OrderQueue(props) {
         <Card.Body>
           <div className={"d-flex"}>
             <Card.Text className={"mr-5"}>{order.pickupTime}</Card.Text>
-            <Card.Text className={"ml-5"}>{"#" + order.orderNumber}</Card.Text>
+            <Card.Text className={"ml-5 text-info"}>
+              {"#" + order.orderNumber}
+            </Card.Text>
 
-            <Card.Text className={"ml-auto"}>{order.name}</Card.Text>
+            <Card.Text className={"ml-auto text-info"}>{order.name}</Card.Text>
           </div>
         </Card.Body>
       </Card>
@@ -32,7 +34,7 @@ function OrderQueue(props) {
       <div>
         <RunnerNavBar />
 
-        <h1 className={"text-center"}>Orders in Queue</h1>
+        <h1 className={"text-center ml-5 pt-3"}>Orders in Queue</h1>
         <ul>{allorders}</ul>
       </div>
     </>
