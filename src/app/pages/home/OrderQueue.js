@@ -12,13 +12,16 @@ function OrderQueue(props) {
     return (
       <Card
         tag="a"
-        onClick={() => history.push("/orderDetails?orderId=" + order.orderNumber)}
+        onClick={() =>
+          history.push("/orderDetails?orderId=" + order.orderNumber)
+        }
       >
         <Card.Body>
-          <div>
-            <Card.Text>
-              {order.pickupTime} {"Order:#" + order.orderNumber} {order.name}
-            </Card.Text>
+          <div className={"d-flex"}>
+            <Card.Text className={"mr-5"}>{order.pickupTime}</Card.Text>
+            <Card.Text className={"ml-5"}>{"#" + order.orderNumber}</Card.Text>
+
+            <Card.Text className={"ml-auto"}>{order.name}</Card.Text>
           </div>
         </Card.Body>
       </Card>
@@ -29,7 +32,7 @@ function OrderQueue(props) {
       <div>
         <RunnerNavBar />
 
-        <h1>Orders in Queue</h1>
+        <h1 className={"text-center"}>Orders in Queue</h1>
         <ul>{allorders}</ul>
       </div>
     </>
