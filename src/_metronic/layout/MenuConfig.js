@@ -28,9 +28,15 @@ export default {
     self: {},
     items: [
       {
-        title: "Customer",
+        title: "CustomerSchedule",
         root: true,
-        page: "customer",
+        page: "customerSchedule",
+        bullet: "dot",
+      },
+      {
+        title: "CustomerArrival",
+        root: true,
+        page: "customerArrival",
         bullet: "dot",
       },
       {

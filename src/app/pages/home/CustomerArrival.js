@@ -66,22 +66,6 @@ function Customer() {
                       <Form>
                         <Form.Group controlId="exampleForm.ControlTextarea1">
 
-                          <Form.Label>Pickup Date</Form.Label>
-                          <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>Monday, June 1</option>
-                            <option>Tuesday, June 2</option>
-                            <option>Wednesday, June 3</option>
-                          </Form.Control>
-
-                          <Form.Label>Pickup Time</Form.Label>
-                          <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>4:00pm</option>
-                            <option>4:15pm</option>
-                            <option>4:30pm</option>
-                          </Form.Control>
-
                           <Form.Label>What model/color is your car?</Form.Label>
                           <Form.Control as="textarea" rows="3" />
 
