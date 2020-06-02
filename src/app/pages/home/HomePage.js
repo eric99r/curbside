@@ -1,11 +1,16 @@
 import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Runner from "./Runner";
-import Owner from "./Owner";
-import Customer from "./Customer";
+import CustomerSchedule from "./CustomerSchedule";
+import CustomerArrival from "./CustomerArrival";
+import TestPage from "./TestPage";
+import StoreInfo from "./StoreInfo";
+import OrderQueue from "./OrderQueue";
+import OrderPrepared from "./OrderPrepared";
+import OrderRunning from "./OrderRunning";
+import OrderCompleted from "./OrderCompleted";
+import OrderDetails from "./OrderDetails";
+import OrderSearch from "./OrderSearch";
 import { LayoutSplashScreen } from "../../../_metronic";
-
-
 
 export default function HomePage() {
   // useEffect(() => {
@@ -17,12 +22,19 @@ export default function HomePage() {
     <Suspense fallback={<LayoutSplashScreen />}>
       <Switch>
         {
-          /* Redirect from root URL to /dashboard. */
-          <Redirect exact from="/" to="/dashboard" />
+          /* Redirect from root URL to /customer. */
+          <Redirect exact from="/" to="/customerSchedule" />
         }
-        <Route path="/runner" component={Runner} />
-        <Route path="/owner" component={Owner} />
-        <Route path="/customer" component={Customer} />
+        <Route path="/customerArrival" component={CustomerArrival} />
+        <Route path="/customerSchedule" component={CustomerSchedule} />
+        <Route path="/testPage" component={TestPage} />
+        <Route path="/storeinfo" component={StoreInfo} />
+        <Route path="/orderQueue" component={OrderQueue} />
+        <Route path="/orderPrepared" component={OrderPrepared} />
+        <Route path="/orderRunning" component={OrderRunning} />
+        <Route path="/orderCompleted" component={OrderCompleted} />
+        <Route path="/orderDetails" component={OrderDetails} />
+        <Route path="/orderSearch" component={OrderSearch} />
         <Redirect to="/error/error-v1" />
       </Switch>
     </Suspense>

@@ -3,40 +3,69 @@ export default {
     self: {},
     items: [
       {
-        title: "Customer",
+        title: "CustomerSchedule",
         root: true,
-        page: "customer"
+        page: "customerSchedule",
       },
       {
-        title: "Runner",
+        title: "CustomerArrival",
         root: true,
-        page: "runner"
+        page: "customerArrival",
       },
       {
-        title: "Owner",
+        title: "TestPage",
         root: true,
-        page: "owner"
+        page: "TestPage",
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo",
+      },
+      {
+        title: "OrderQueue",
+        root: true,
+        page: "OrderQueue"
+      },
+      {
+        title: "OrderSearch",
+        root: true,
+        page: "OrderSearch"
       }
-    ]
+    ],
   },
   aside: {
     self: {},
     items: [
       {
-        title: "Customer",
+        title: "CustomerSchedule",
         root: true,
-        page: "customer",
-        bullet: "dot"
+        page: "customerSchedule",
       },
       {
-        title: "Runner",
+        title: "CustomerArrival",
         root: true,
-        page: "runner"
+        page: "customerArrival",
       },
       {
-        title: "Owner",
+        title: "TestPage",
         root: true,
-        page: "owner"
+        page: "TestPage",
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo",
+      },
+      {
+        title: "OrderQueue",
+        root: true,
+        page: "OrderQueue"
+      },
+      {
+        title: "OrderSearch",
+        root: true,
+        page: "OrderSearch"
       }
     ]
   }
