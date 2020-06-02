@@ -9,8 +9,6 @@ function OrderRunning(props) {
   const history = useHistory();
   const { order } = props;
 
-  console.log(props);
-
   const orders = order.orders.filter(
     (status) => status.orderStatus === "Running"
   );
