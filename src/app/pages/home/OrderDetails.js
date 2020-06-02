@@ -14,8 +14,8 @@ function useQuery() {
 
 function OrderDetails(props) {
   let query = useQuery();
-  // eslint-disable-next-line eqeqeq
   const thisOrder = props.orders.orders.filter(
+    // eslint-disable-next-line eqeqeq
     (x) => x.orderNumber == query.get("orderId")
   )[0];
 
