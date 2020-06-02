@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import RunnerNavBar from "../../partials/content/RunnerNavBar";
-import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import * as order from "../../store/ducks/order.duck";
@@ -15,7 +14,6 @@ function OrderRunning(props) {
   );
 
   useEffect(() => {
-    console.log("After state update", order);
   }, [order, order.lastUpdated]);
 
   const allorders = orders.map((order) => {

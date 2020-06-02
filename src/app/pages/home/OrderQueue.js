@@ -9,11 +9,10 @@ function OrderQueue(props) {
   const { order } = props;
 
   const orders = order.orders.filter(
-    (status) => status.orderStatus === "Queue"
+    (status) => status.orderStatus === "In Queue"
   );
 
   useEffect(() => {
-    console.log("After state update", order);
   }, [order, order.lastUpdated]);
 
   const allorders = orders.map((order) => {
@@ -48,7 +47,7 @@ function OrderQueue(props) {
         <RunnerNavBar />
 
         <h1 className={"text-center ml-5 pt-3"} style={{ color: "gray" }}>
-          Orders Queue
+          Orders In Queue
         </h1>
         <ul>{allorders}</ul>
       </div>

@@ -24,41 +24,16 @@ const initialState = {
 export const reducer = persistReducer(
   { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
   (state = initialState, action) => {
-    switch (action.type) {
-       
-            // //BEST Example of changing a value in an array (By Object) 
-            // case actionTypes.editStoreHours: {
-            //   const { day } = action.payload;
-            //   console.log("state: ", state);
-            //   console.log("payload: " + day)
-            //   let newState = state;
-            //     newState =
-            //     {
-            //       ...newState,
-            //       store: {
-            //         ...newState.store,
-            //         storeHours: newState.store.storeHours.map(d => d.day === day.day ? day : d )
-            //       }
-            //     }
-            //     newState.lastUpdated = Date.now();
-            //   return newState;
-            // }     
-
-            
+    switch (action.type) {            
       //BEST Example of changing a value in an array (By Object) 
       case actionTypes.changeOrderStatus: {
           const { order } = action.payload;
-          console.log("payload Order: ")
-          console.log(order)
           let newState = state;
             newState =
             {
               ...newState,
-              orders: {
-                ...newState.orders,
                 orders: newState.orders.map(o => o.orderNumber === order.orderNumber ? order : o )
-              }
-            }
+            }            
             newState.lastUpdated = Date.now();
           return newState;
         }

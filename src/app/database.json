@@ -96,7 +96,7 @@
   "orders": [
     {
       "orderNumber": 1,
-      "orderStatus": "Queue",
+      "orderStatus": "In Queue",
       "pickupTime": "3:45pm",
       "timeCompleted": "",
       "name": "Michael",
@@ -118,7 +118,7 @@
     },
     {
       "orderNumber": 2,
-      "orderStatus": "Queue",
+      "orderStatus": "In Queue",
       "pickupTime": "2:45pm",
       "timeCompleted": "",
       "name": "Eric",
