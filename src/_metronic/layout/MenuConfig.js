@@ -3,14 +3,19 @@ export default {
     self: {},
     items: [
       {
+        title: "TestPage",
+        root: true,
+        page: "TestPage",
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo"
+      },
+      {
         title: "Customer",
         root: true,
         page: "customer",
-      },
-      {
-        title: "Owner",
-        root: true,
-        page: "owner",
       },
       {
         title: "OrderQueue",
@@ -18,9 +23,9 @@ export default {
         page: "OrderQueue",
       },
       {
-        title: "StoreInfo",
+        title: "OrderSearch",
         root: true,
-        page: "storeinfo"
+        page: "OrderSearch"
       }
     ],
   },
@@ -40,9 +45,20 @@ export default {
         bullet: "dot",
       },
       {
-        title: "Owner",
+        title: "TestPage",
         root: true,
-        page: "owner",
+        page: "TestPage"
+      },
+      {
+        title: "StoreInfo",
+        root: true,
+        page: "storeinfo",
+      },
+      {
+        title: "Customer",
+        root: true,
+        page: "customer",
+        bullet: "dot",
       },
       {
         title: "OrderQueue",
@@ -50,9 +66,9 @@ export default {
         page: "OrderQueue"
       },
       {
-        title: "StoreInfo",
+        title: "OrderSearch",
         root: true,
-        page: "storeinfo"
+        page: "OrderSearch"
       }
     ]
   }

@@ -107,7 +107,7 @@
       ]
     },
     {
-        "orderNumber": 1,
+        "orderNumber": 2,
         "orderStatus": "Queue",
         "pickupTime": "2:45pm",
         "timeCompleted": "",
@@ -242,11 +242,11 @@
         "orderNumber": 8,
         "orderStatus": "Delivered",
         "pickupTime": "1:00pm",
-        "timeCompleted": "1:29",
+        "timeCompleted": "1:29pm",
         "name": "Blake Griffin",
         "car": "Green Kia Soul",
         "location": "Circle Dr #2",
-        "timeArrived": "1:150pm",
+        "timeArrived": "1:50pm",
         "preparedBy": "Brendan",
         "deliveredBy": "Eric",
         "items": [

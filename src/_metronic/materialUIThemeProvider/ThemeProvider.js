@@ -13,7 +13,7 @@ const theme = createMuiTheme(
     },
 
     palette: {
-      contrastThreshold: 2,
+      contrastThreshold: 3,
       primary: {
         // light: will be calculated from palette.primary.main,
         main: "#5d78ff"

@@ -1,30 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import database from "../../database.json";
-import RunnerNavBar from '../../partials/content/RunnerNavBar'
+import RunnerNavBar from "../../partials/content/RunnerNavBar";
+import { Card } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import * as order from "../../store/ducks/order.duck";
+function OrderQueue(props) {
+  const history = useHistory();
+  const { order } = props;
 
-function OrderQueue() {
-  const order = database.orders;
-  const allorders = order.map((order) => {
+  const orders = order.orders.filter(
+    (status) => status.orderStatus === "Queue"
+  );
+
+  useEffect(() => {
+    console.log("After state update", order);
+  }, [order, order.lastUpdated]);
+
+  const allorders = orders.map((order) => {
     return (
-      <li style={{ listStyleType: "none" }}>
-        <div
-          className="col-sm-12 col-md-2 col-lg-8"
-          style={{ backgroundColor: "lightblue" }}
-        >
-          {order.pickupTime}
-          {order.orderNumber}
-          {order.name}
-        </div>
-      </li>
+      <Card
+        key={order.orderNumber}
+        tag="a"
+        onClick={() =>
+          history.push("/orderDetails?orderId=" + order.orderNumber)
+        }
+      >
+        <Card.Body>
+          <div className={"d-flex"}>
+            <Card.Text className={"mr-5"} style={{ color: "gray" }}>
+              {order.pickupTime}
+            </Card.Text>
+            <Card.Text className={"ml-5"} style={{ color: "blue" }}>
+              {"#" + order.orderNumber}
+            </Card.Text>
+
+            <Card.Text className={"ml-auto"} style={{ color: "blue" }}>
+              {order.name}
+            </Card.Text>
+          </div>
+        </Card.Body>
+      </Card>
     );
   });
   return (
     <>
       <div>
-      <RunnerNavBar/>
+        <RunnerNavBar />
 
-      <h1>Orders in Queue</h1>
+        <h1 className={"text-center ml-5 pt-3"} style={{ color: "gray" }}>
+          Orders Queue
+        </h1>
         <ul>{allorders}</ul>
       </div>
     </>
@@ -33,8 +58,8 @@ function OrderQueue() {
 
 function mapStateToProps(state) {
   return {
-    //order: state.order.orders,
+    order: state.orders,
   };
 }
 
-export default connect(mapStateToProps)(OrderQueue);
+export default connect(mapStateToProps, order.actions)(OrderQueue);
