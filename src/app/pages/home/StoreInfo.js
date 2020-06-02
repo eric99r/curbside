@@ -71,7 +71,7 @@ function StoreInfo(props) {
                             <option>Dominican University</option>
                             <option>Knox College</option>
                           </Form.Control>
-
+                          <div className="kt-space-20" />
                           <Form.Label>Sub-Location</Form.Label>
                           <Form.Control as="select">
                             <option>Choose...</option>
@@ -145,8 +145,8 @@ function StoreInfo(props) {
                         daysOfWeek.map((day)=>{ 
                           return  <tr key={day} >
                                     <td className={"text-center"}> <StoreHours key={day} day={day} curbside={true} /> </td>
-                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
-                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
+                                    <td className={"text-center"}> {  curbsideHours.filter((x) => x.day === day)[0].timeOpen} </td>
+                                    <td className={"text-center"}> {  curbsideHours.filter((x) => x.day === day)[0].timeClosed} </td>
                                   </tr>
                         })
                       }

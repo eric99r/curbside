@@ -54,16 +54,17 @@ function Customer() {
               <div className={"d-flex justify-content-center"}>
                 <p >Your order is ready!</p>
               </div>
+              <div className={"d-flex justify-content-center"}>
+                <p >Please park and give us some details about how to find you.</p>
+              </div>
             </span>
-
-            <div className="kt-separator kt-separator--dashed"></div>
             <div className={"d-flex justify-content-center"}>
-              <Form>
+              <Form style={{width: "80%"}}>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
 
                   <Form.Label>What model/color is your car?</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
-
+                  <Form.Control  as="textarea" rows="3" />
+                  <div className="kt-space-20" />
                   <Form.Label>Where are you waiting?</Form.Label>
                   <Form.Control as="textarea" rows="3" />
                 </Form.Group>

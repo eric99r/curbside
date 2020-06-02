@@ -51,12 +51,9 @@ function Customer(props) {
             <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
 
             <div className={"d-flex justify-content-center"}>
-              <p className={"text-center ml-5 pt-3"}>Order status:
-              Ready in 1 hour!
-              (5:00pm)
+              <p className={"text-center ml-5 pt-3"}>Please schedule a time to pick up your order.
                       </p>
             </div>
-            <div className="kt-separator kt-separator--dashed"></div>
 
             {/* <Form action="/customerArrival"> */}
             <Form>
@@ -69,7 +66,7 @@ function Customer(props) {
                   <option>Tuesday, June 2</option>
                   <option>Wednesday, June 3</option>
                 </Form.Control>
-
+                <div className="kt-space-20" />
                 <Form.Label>Pickup Time</Form.Label>
                 <Form.Control as="select">
                   <option>Choose...</option>
