@@ -1,92 +1,102 @@
 {
-    "store": {
-        "id": 2344,
-        "owner": "James",
-        "location": "College Station, TX",
-        "curbsideLocation": "In front of Circle Drive",
-        "storeHours": [
-            {
-                "day": "Sunday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Monday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Tuesday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Wednesday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Thursday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Friday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },
-            {
-                "day": "Saturday",
-                "timeOpen": "9:00 AM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            }
-        ],
-        "curbsideHours": [
-            {
-                "day": "Sunday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Monday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Tuesday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Wednesday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Thursday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },  {
-                "day": "Friday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            },
-            {
-                "day": "Saturday",
-                "timeOpen": "1:45 PM",
-                "timeClosed": "5:00 PM",
-                "willNotOpen": false
-            }
-        ]
-    },
+  "store": {
+    "id": 2344,
+    "owner": "James",
+    "location": "College Station, TX",
+    "curbsideLocation": "In front of Circle Drive",
+    "storeHours": [
+      {
+        "day": "Sunday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Monday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Tuesday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Wednesday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Thursday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Friday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Saturday",
+        "timeOpen": "9:00 AM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      }
+    ],
+    "curbsideHours": [
+      {
+        "day": "Sunday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Monday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Tuesday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Wednesday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Thursday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Friday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      },
+      {
+        "day": "Saturday",
+        "timeOpen": "1:45 PM",
+        "timeClosed": "5:00 PM",
+        "willNotOpen": false
+      }
+    ]
+  },
   "orders": [
     {
       "orderNumber": 1,
-      "orderStatus": "Queue",
+      "orderStatus": "In Queue",
       "pickupTime": "3:45pm",
       "timeCompleted": "",
       "name": "Michael",
@@ -101,164 +111,164 @@
           "itemName": "English 141"
         },
         {
-            "quantity": 2,
-            "itemName": "Bumper Sticker"
+          "quantity": 2,
+          "itemName": "Bumper Sticker"
         }
       ]
     },
     {
-        "orderNumber": 2,
-        "orderStatus": "Queue",
-        "pickupTime": "2:45pm",
-        "timeCompleted": "",
-        "name": "Eric",
-        "car": "",
-        "location": "",
-        "timeArrived": "",
-        "preparedBy": "",
-        "deliveredBy": "",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Calculus 451"
-          },
-          {
-              "quantity": 2,
-              "itemName": "Bumper Sticker"
-          }
-        ]
-      },
-      {
-        "orderNumber": 3,
-        "orderStatus": "Prepared",
-        "pickupTime": "1:45pm",
-        "timeCompleted": "",
-        "name": "Shaquille O'Neal",
-        "car": "Gray Buick Regal",
-        "location": "",
-        "timeArrived": "",
-        "preparedBy": "Brendan",
-        "deliveredBy": "",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Physics 101"
-          },
-          {
-              "quantity": 1,
-              "itemName": "Extra Large Trophy Case"
-          }
-        ]
-      },
-      {
-        "orderNumber": 4,
-        "orderStatus": "Prepared",
-        "pickupTime": "1:45pm",
-        "timeCompleted": "",
-        "name": "Derrick Rose",
-        "car": "Black Lincoln Towncar",
-        "location": "Circle Dr #1",
-        "timeArrived": "1:50pm",
-        "preparedBy": "Brendan",
-        "deliveredBy": "",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Kinesiology 301"
-          },
-          {
-              "quantity": 2,
-              "itemName": "Tylenol"
-          }
-        ]
-      },
-      {
-        "orderNumber": 5,
-        "orderStatus": "Running",
-        "pickupTime": "1:45pm",
-        "timeCompleted": "",
-        "name": "Ron Artest",
-        "car": "Honda Accord",
-        "location": "Circle Dr #5",
-        "timeArrived": "1:50pm",
-        "preparedBy": "Brendan",
-        "deliveredBy": "",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Psychology 201"
-          },
-          {
-              "quantity": 1,
-              "itemName": "Elbow Braces"
-          }
-        ]
-      },
-      {
-        "orderNumber": 6,
-        "orderStatus": "Running",
-        "pickupTime": "2:00pm",
-        "timeCompleted": "",
-        "name": "LeBron James",
-        "car": "Black Hummer H2",
-        "location": "Circle Dr #3",
-        "timeArrived": "2:00pm",
-        "preparedBy": "Brendan",
-        "deliveredBy": "",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Nutrition 441"
-          },
-          {
-              "quantity": 10,
-              "itemName": "Protien Bars"
-          }
-        ]
-      },
-      {
-        "orderNumber": 7,
-        "orderStatus": "Delivered",
-        "pickupTime": "1:00pm",
-        "timeCompleted": "1:29",
-        "name": "Giannis A.",
-        "car": "Blue BMW x1",
-        "location": "Circle Dr #3",
-        "timeArrived": "1:20pm",
-        "preparedBy": "Brendan",
-        "deliveredBy": "Michael",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Management 225"
-          },
-          {
-              "quantity": 1,
-              "itemName": "English 418"
-          }
-        ]
-      },
-      {
-        "orderNumber": 8,
-        "orderStatus": "Delivered",
-        "pickupTime": "1:00pm",
-        "timeCompleted": "1:29pm",
-        "name": "Blake Griffin",
-        "car": "Green Kia Soul",
-        "location": "Circle Dr #2",
-        "timeArrived": "1:50pm",
-        "preparedBy": "Brendan",
-        "deliveredBy": "Eric",
-        "items": [
-          {
-            "quantity": 1,
-            "itemName": "Physics 445"
-          },
-          {
-              "quantity": 1,
-              "itemName": "Dog Collar"
-          }
-        ]
-      }
+      "orderNumber": 2,
+      "orderStatus": "In Queue",
+      "pickupTime": "2:45pm",
+      "timeCompleted": "",
+      "name": "Eric",
+      "car": "",
+      "location": "",
+      "timeArrived": "",
+      "preparedBy": "",
+      "deliveredBy": "",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Calculus 451"
+        },
+        {
+          "quantity": 2,
+          "itemName": "Bumper Sticker"
+        }
+      ]
+    },
+    {
+      "orderNumber": 3,
+      "orderStatus": "Prepared",
+      "pickupTime": "1:45pm",
+      "timeCompleted": "",
+      "name": "Shaquille O'Neal",
+      "car": "Gray Buick Regal",
+      "location": "",
+      "timeArrived": "",
+      "preparedBy": "Brendan",
+      "deliveredBy": "",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Physics 101"
+        },
+        {
+          "quantity": 1,
+          "itemName": "Extra Large Trophy Case"
+        }
+      ]
+    },
+    {
+      "orderNumber": 4,
+      "orderStatus": "Prepared",
+      "pickupTime": "1:45pm",
+      "timeCompleted": "",
+      "name": "Derrick Rose",
+      "car": "Black Lincoln Towncar",
+      "location": "Circle Dr #1",
+      "timeArrived": "1:50pm",
+      "preparedBy": "Brendan",
+      "deliveredBy": "",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Kinesiology 301"
+        },
+        {
+          "quantity": 2,
+          "itemName": "Tylenol"
+        }
+      ]
+    },
+    {
+      "orderNumber": 5,
+      "orderStatus": "Running",
+      "pickupTime": "1:45pm",
+      "timeCompleted": "",
+      "name": "Ron Artest",
+      "car": "Honda Accord",
+      "location": "Circle Dr #5",
+      "timeArrived": "1:50pm",
+      "preparedBy": "Brendan",
+      "deliveredBy": "",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Psychology 201"
+        },
+        {
+          "quantity": 1,
+          "itemName": "Elbow Braces"
+        }
+      ]
+    },
+    {
+      "orderNumber": 6,
+      "orderStatus": "Running",
+      "pickupTime": "2:00pm",
+      "timeCompleted": "",
+      "name": "LeBron James",
+      "car": "Black Hummer H2",
+      "location": "Circle Dr #3",
+      "timeArrived": "2:00pm",
+      "preparedBy": "Brendan",
+      "deliveredBy": "",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Nutrition 441"
+        },
+        {
+          "quantity": 10,
+          "itemName": "Protien Bars"
+        }
+      ]
+    },
+    {
+      "orderNumber": 7,
+      "orderStatus": "Delivered",
+      "pickupTime": "1:00pm",
+      "timeCompleted": "1:29",
+      "name": "Giannis A.",
+      "car": "Blue BMW x1",
+      "location": "Circle Dr #3",
+      "timeArrived": "1:20pm",
+      "preparedBy": "Brendan",
+      "deliveredBy": "Michael",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Management 225"
+        },
+        {
+          "quantity": 1,
+          "itemName": "English 418"
+        }
+      ]
+    },
+    {
+      "orderNumber": 8,
+      "orderStatus": "Delivered",
+      "pickupTime": "1:00pm",
+      "timeCompleted": "1:29pm",
+      "name": "Blake Griffin",
+      "car": "Green Kia Soul",
+      "location": "Circle Dr #2",
+      "timeArrived": "1:50pm",
+      "preparedBy": "Brendan",
+      "deliveredBy": "Eric",
+      "items": [
+        {
+          "quantity": 1,
+          "itemName": "Physics 445"
+        },
+        {
+          "quantity": 1,
+          "itemName": "Dog Collar"
+        }
+      ]
+    }
   ]
 }

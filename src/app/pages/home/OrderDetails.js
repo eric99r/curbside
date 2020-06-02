@@ -1,22 +1,23 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import RunnerNavBar from "../../partials/content/RunnerNavBar";
 import { useLocation } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { Card } from "react-bootstrap";
+import * as orders from "../../store/ducks/order.duck";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
+
+
 function OrderDetails(props) {
   let query = useQuery();
-  // eslint-disable-next-line eqeqeq
   const thisOrder = props.orders.orders.filter(
+    // eslint-disable-next-line eqeqeq
     (x) => x.orderNumber == query.get("orderId")
   )[0];
-  console.log("Order Details props init", props);
-  console.log(thisOrder);
 
   const orderItems = thisOrder.items.map((item) => {
     return (
@@ -61,13 +62,42 @@ function OrderDetails(props) {
 
         {thisOrder.items && <ul className={"mr-5"}>{orderItems}</ul>}
       </div>
-
+      <UpdateOrderStatusButton thisOrder={thisOrder} event={props} />
       <div className={"p-4"}>
-        <Button type="submit">{thisOrder.orderStatus}</Button>
       </div>
     </div>
   );
 }
+
+const handleStatusClick = (order, nav, props) => {
+  order.thisOrder.orderStatus = nav;
+  return order.event.changeOrderStatus(order.thisOrder);
+}
+
+const UpdateOrderStatusButton = (thisOrder, event) => {
+
+  switch (thisOrder.thisOrder.orderStatus) {
+    case 'In Queue':
+      return <Button onClick={() => { handleStatusClick(thisOrder, 'Prepared', event) }}>Order Prepared!</Button>;
+    case 'Prepared':
+      return <Button onClick={() => { handleStatusClick(thisOrder, 'Running', event) }}>On My Way!</Button>;
+    case 'Running':
+      return (
+        <div>
+          <Button onClick={() => { handleStatusClick(thisOrder, 'Delivered', event) }}>Order Delivered!</Button>;
+          <br />
+          <br />
+          <Button onClick={() => { handleStatusClick(thisOrder, 'Prepared', event) }}>Can't Find Customer!</Button>;
+        </div>
+      )
+    case 'Delivered':
+      return null;
+    default:
+      console.log(thisOrder.order)
+      return <p>Order status not recognized</p>
+  }
+}
+
 
 function mapStateToProps(state) {
   return {
@@ -75,4 +105,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(OrderDetails);
+export default connect(mapStateToProps, orders.actions)(OrderDetails);
