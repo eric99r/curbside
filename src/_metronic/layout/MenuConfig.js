@@ -3,6 +3,16 @@ export default {
     self: {},
     items: [
       {
+        title: "CustomerSchedule",
+        root: true,
+        page: "customerSchedule",
+      },
+      {
+        title: "CustomerArrival",
+        root: true,
+        page: "customerArrival",
+      },
+      {
         title: "TestPage",
         root: true,
         page: "TestPage",
@@ -10,17 +20,12 @@ export default {
       {
         title: "StoreInfo",
         root: true,
-        page: "storeinfo"
-      },
-      {
-        title: "Customer",
-        root: true,
-        page: "customer",
+        page: "storeinfo",
       },
       {
         title: "OrderQueue",
         root: true,
-        page: "OrderQueue",
+        page: "OrderQueue"
       },
       {
         title: "OrderSearch",
@@ -36,29 +41,21 @@ export default {
         title: "CustomerSchedule",
         root: true,
         page: "customerSchedule",
-        bullet: "dot",
       },
       {
         title: "CustomerArrival",
         root: true,
         page: "customerArrival",
-        bullet: "dot",
       },
       {
         title: "TestPage",
         root: true,
-        page: "TestPage"
+        page: "TestPage",
       },
       {
         title: "StoreInfo",
         root: true,
         page: "storeinfo",
-      },
-      {
-        title: "Customer",
-        root: true,
-        page: "customer",
-        bullet: "dot",
       },
       {
         title: "OrderQueue",

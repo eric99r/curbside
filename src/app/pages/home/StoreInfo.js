@@ -4,9 +4,9 @@ import { connect, useSelector } from "react-redux";
 import {
   Portlet,
   PortletBody} from "../../partials/content/Portlet";
+  import * as order from "../../store/ducks/storeinfo.duck";
 import { metronic } from "../../../_metronic";
 import StoreHours from "./StoreHours";
-
 import { Form } from "react-bootstrap";
 
 import {
@@ -16,34 +16,22 @@ import {
   DropdownButton,
   SplitButton,
   ButtonToolbar,
-  Modal
+  Modal,
+  Card
 } from "react-bootstrap";
 
 
 function StoreInfo(props) {
 
-  const { brandColor, dangerColor, successColor, primaryColor, modalShow } = useSelector(
-    state => ({
-      brandColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.brand"
-      ),
-      dangerColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.danger"
-      ),
-      successColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.success"
-      ),
-      primaryColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.primary"
-      ),
-      modalShow: false
-    }))
   
+  const { order } = props;
 
+  const storeHours = props.business.store.storeHours;
+  const curbsideHours = props.business.store.curbsideHours;
+
+  console.log(storeHours);
+  console.log(props);
+  console.log(222);
 
   // const state = {modalShow : false,
   //             show: false,
@@ -54,26 +42,25 @@ function StoreInfo(props) {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", 
                       "Friday", "Saturday", "Sunday"]
 
+
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  console.log(storeHours.filter((x) => x.day == "Monday"));
   return (
-    <>
-      <div className="row">
-        <div className="col-xl-6">
-          <div className="row row-full-height">
-            <div className="col-lg-12">
-              <Portlet className="kt-portlet--border-bottom-brand">
-                <PortletBody fluid={true}>
+            <>
                   {/* <!--kt-portlet--height-fluid-half--> */}
 
-                  <div className="kt-section">
-                    <span className="kt-section__sub">
-                    
-                      <h1>Store Information</h1>
+                  {/* <div className="kt-section">
+                    <span className="kt-section__sub"> */}
+                                      
+                  <Card>
+                    <Card.Body>
+                    <div>
+                      <span>
+                      <h1 className={"text-center ml-5 pt-3"}>Store Information</h1>
                     </span>
 
-                    <div className="kt-separator kt-separator--dashed"></div>
 
                       <Form>
                         <Form.Group >
@@ -95,23 +82,45 @@ function StoreInfo(props) {
                         </Form.Group>
                       </Form>
 
-
-                      Store Hours
+                      {/* Store Hours
                       <ul style={{listStyleType : "none"}}>
                       {
                         daysOfWeek.map((day)=>{ 
                           return  <li key={day} style={{float : "left"}}><StoreHours key={day} day={day} curbside={false} /></li>
                         })
                       }
-                      </ul>
+                      </ul> */}
 
-                      <div className="kt-separator kt-separator--dashed"></div>
+                      <div className={"d-flex justify-content-center"}>
+                      <h2 className={"text-center"}>Store Hours</h2>
+                      </div>
+                      <div className={"d-flex justify-content-center"}>
+                      <table style={{width: "100%"}}>
+                        <tr>
+                          <th className={"text-center"}>Day</th>
+                          <th className={"text-center"}>Open</th>
+                          <th className={"text-center"}>Close</th>
+                        </tr>
+                      {
+                        
+                        daysOfWeek.map((day)=>{ 
+                          return  <tr key={day} >
+                                    <td className={"text-center"}> <StoreHours key={day} day={day} curbside={false} /> </td>
+                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
+                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
+                                  </tr>
+                        })
+                      }
+                      </table>
 
-                      <Form.Group controlId="formBasicChecbox">
+                      </div>
+                      <div className="kt-space-20" />
+
+                      <Form.Group className={"d-flex justify-content-center"} controlId="formBasicChecbox">
                         <Form.Check type="checkbox" label="Curbside hours different from store hours" />
                       </Form.Group>
 
-                      Curbside Hours
+                      {/* Curbside Hours
 
                       <ul style={{listStyleType : "none"}}>                      
                       {
@@ -119,91 +128,61 @@ function StoreInfo(props) {
                           return <li key={day}  style={{float : "left"}}><StoreHours key={day} day={day} curbside={true} /></li>
                         })
                       }
-                      </ul>
-                      {/* <Button variant="primary" onClick={handleShow}>
-                        Launch demo modal
-                      </Button>
+                      </ul> */}
 
-                      <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                          <Modal.Title>Monday Store Hours</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-
-                          <Form>
-                            <Form.Label>Open</Form.Label>
-                              <Form.Control as="select">
-                                <option>Choose...</option>
-                                <option>4:00pm</option>
-                                <option>4:15pm</option>
-                                <option>4:30pm</option>
-                              </Form.Control>
-                            <Form.Label>Close</Form.Label>
-                              <Form.Control as="select">
-                                <option>Choose...</option>
-                                <option>4:00pm</option>
-                                <option>4:15pm</option>
-                                <option>4:30pm</option>
-                              </Form.Control>
-                          </Form>
-
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
-                            Close
-                          </Button>
-                          <Button variant="primary" onClick={handleClose}>
-                            Save Changes
-                          </Button>
-                        </Modal.Footer>
-                      </Modal> */}
+                      <div className={"d-flex justify-content-center"}>
+                      <h2 className={"text-center"}>Curbside Hours</h2>
+                      </div>
+                      <div className={"d-flex justify-content-center"}>
+                      <table style={{width: "100%"}}>
+                        <tr>
+                          <th className={"text-center"}>Day</th>
+                          <th className={"text-center"}>Open</th>
+                          <th className={"text-center"}>Close</th>
+                        </tr>
+                      {
+                        
+                        daysOfWeek.map((day)=>{ 
+                          return  <tr key={day} >
+                                    <td className={"text-center"}> <StoreHours key={day} day={day} curbside={true} /> </td>
+                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
+                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
+                                  </tr>
+                        })
+                      }
+                      </table>
+                      </div>
                       
-                  
-                <div className="kt-separator kt-separator--dashed"></div>
-
-                
-
                   </div>
 
-                </PortletBody>
-              </Portlet>
-
-              <div className="kt-space-20" />
-
-            </div>
-
-            <div className="col-sm-12 col-md-12 col-lg-6">
 
 
-              <div className="kt-space-20" />
-
-            </div>
-          </div>
-        </div>
-
-        <div className="col-xl-6">
-
-        </div>
-      </div>
+</Card.Body>
+</Card>
 
 
 
-      <div className="row">
-
-      </div>
-
-
-      <div className="row">
-
-      </div>
     </>
   );
 }
 
+// function mapStateToProps(state) {
+//   return {
+//     business: state.store,
+//   }
+// }
+
+// export default connect(mapStateToProps, "")(StoreInfo);
 function mapStateToProps(state) {
+
+  console.log(state);
+  console.log(333);
+
   return {
-//    business: state.business.store,
-  }
+    business: state.business,
+    orders: state.orders
+  };
 }
+
 
 export default connect(mapStateToProps)(StoreInfo);

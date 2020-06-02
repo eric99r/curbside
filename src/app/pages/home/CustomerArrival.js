@@ -3,10 +3,11 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
-  PortletBody} from "../../partials/content/Portlet";
+  PortletBody
+} from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Card } from "react-bootstrap";
 
 import {
   Dropdown,
@@ -42,86 +43,61 @@ function Customer() {
 
   return (
     <>
-      <div className="row">
-        <div className="col-xl-6">
-          <div className="row row-full-height">
-            <div className="col-lg-12">
-              <Portlet className="kt-portlet--border-bottom-brand">
-                <PortletBody fluid={true}>
-                  {/* <!--kt-portlet--height-fluid-half--> */}
+      <Card>
+        <Card.Body>
+          {/* <!--kt-portlet--height-fluid-half--> */}
 
-                  <div class="kt-section">
-                    <span classname="kt-section__sub">
-                    
-                      <h1>Curbside Pickup</h1>
-                      Order status:
-                      <br/>
-                      Ready in 1 hour!
-                      <br/>
-                      (5:00pm)
-                    </span>
+          <div class="kt-section">
+            <span classname="kt-section__sub">
 
-                    <div className="kt-separator kt-separator--dashed"></div>
+              <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
+              <div className={"d-flex justify-content-center"}>
+                <p >Your order is ready!</p>
+              </div>
+            </span>
 
-                      <Form>
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
+            <div className="kt-separator kt-separator--dashed"></div>
+            <div className={"d-flex justify-content-center"}>
+              <Form>
+                <Form.Group controlId="exampleForm.ControlTextarea1">
 
-                          <Form.Label>What model/color is your car?</Form.Label>
-                          <Form.Control as="textarea" rows="3" />
+                  <Form.Label>What model/color is your car?</Form.Label>
+                  <Form.Control as="textarea" rows="3" />
 
-                          <Form.Label>Where are you waiting?</Form.Label>
-                          <Form.Control as="textarea" rows="3" />
-                        </Form.Group>
-                        <Button type="submit">I'm here!</Button>
-                      </Form>
-                  
-                <div className="kt-separator kt-separator--dashed"></div>
-
-                    <h2>Order Summary</h2>
-
-                    <h3>Math Textbook</h3>
-                    <h3>History Textbook</h3>
-
-                  </div>
-
-                </PortletBody>
-              </Portlet>
-
-              <div className="kt-space-20" />
-
+                  <Form.Label>Where are you waiting?</Form.Label>
+                  <Form.Control as="textarea" rows="3" />
+                </Form.Group>
+                <div className={"d-flex justify-content-center"}>
+                  <Button type="submit">I'm here!</Button>
+                </div>
+              </Form>
             </div>
 
-            <div className="col-sm-12 col-md-12 col-lg-6">
+            <div className="kt-separator kt-separator--dashed"></div>
 
+            <h2>Order Summary</h2>
 
-              <div className="kt-space-20" />
+            <h3>Math Textbook</h3>
+            <h3>History Textbook</h3>
 
-            </div>
           </div>
-        </div>
 
-        <div className="col-xl-6">
-
-        </div>
-      </div>
+        </Card.Body>
+      </Card>
 
 
 
-      <div className="row">
-
-      </div>
 
 
-      <div className="row">
 
-      </div>
+
     </>
   );
 }
 
 function mapStateToProps(state) {
   return {
-//    business: state.business.store,
+    //    business: state.business.store,
   }
 }
 

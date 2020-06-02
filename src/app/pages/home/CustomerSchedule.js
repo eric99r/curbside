@@ -3,10 +3,12 @@ import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
-  PortletBody} from "../../partials/content/Portlet";
+  PortletBody
+} from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
-
-import { Button, Form } from "react-bootstrap";
+//import { browserHistory } from './react-router'
+//import { push } from 'react-router-redux';
+import { Button, Form, Card } from "react-bootstrap";
 
 import {
   Dropdown,
@@ -17,7 +19,7 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 
-function Customer() {
+function Customer(props) {
   const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
     state => ({
       brandColor: metronic.builder.selectors.getConfig(
@@ -42,97 +44,70 @@ function Customer() {
 
   return (
     <>
-      <div className="row">
-        <div className="col-xl-6">
-          <div className="row row-full-height">
-            <div className="col-lg-12">
-              <Portlet className="kt-portlet--border-bottom-brand">
-                <PortletBody fluid={true}>
-                  {/* <!--kt-portlet--height-fluid-half--> */}
+      <Card>
+        <Card.Body>
+          <div >
 
-                  <div className="kt-section">
-                    
-                    <span className="kt-section__sub">
-                    
-                      <h1>Curbside Pickup</h1>
-                      Order status:
-                      <br/>
-                      Ready in 1 hour!
-                      <br/>
-                      (5:00pm)
-                    </span>
+            <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
 
-                    <div className="kt-separator kt-separator--dashed"></div>
-
-                      <Form>
-                        <Form.Group controlId="exampleForm.ControlTextarea1">
-
-                          <Form.Label>Pickup Date</Form.Label>
-                          <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>Monday, June 1</option>
-                            <option>Tuesday, June 2</option>
-                            <option>Wednesday, June 3</option>
-                          </Form.Control>
-
-                          <Form.Label>Pickup Time</Form.Label>
-                          <Form.Control as="select">
-                            <option>Choose...</option>
-                            <option>4:00pm</option>
-                            <option>4:15pm</option>
-                            <option>4:30pm</option>
-                          </Form.Control>
-                        </Form.Group>
-                        <Button type="submit">Submit</Button>
-                      </Form>
-                  
-                <div className="kt-separator kt-separator--dashed"></div>
-
-                    <h2>Order Summary</h2>
-
-                    <h3>Math Textbook</h3>
-                    <h3>History Textbook</h3>
-
-                  </div>
-
-                </PortletBody>
-              </Portlet>
-
-              <div className="kt-space-20" />
-
+            <div className={"d-flex justify-content-center"}>
+              <p className={"text-center ml-5 pt-3"}>Order status:
+              Ready in 1 hour!
+              (5:00pm)
+                      </p>
             </div>
+            <div className="kt-separator kt-separator--dashed"></div>
 
-            <div className="col-sm-12 col-md-12 col-lg-6">
+            {/* <Form action="/customerArrival"> */}
+            <Form>
+              <Form.Group controlId="exampleForm.ControlTextarea1">
 
+                <Form.Label>Pickup Date</Form.Label>
+                <Form.Control as="select">
+                  <option>Choose...</option>
+                  <option>Monday, June 1</option>
+                  <option>Tuesday, June 2</option>
+                  <option>Wednesday, June 3</option>
+                </Form.Control>
 
-              <div className="kt-space-20" />
+                <Form.Label>Pickup Time</Form.Label>
+                <Form.Control as="select">
+                  <option>Choose...</option>
+                  <option>4:00pm</option>
+                  <option>4:15pm</option>
+                  <option>4:30pm</option>
+                </Form.Control>
+              </Form.Group>
+              <div className={"d-flex justify-content-center"}>
+                <Button
+                  onClick={() => { props.history.push('/customerArrival') }}>Submit</Button>
+              </div>
+            </Form>
 
-            </div>
+            <div className="kt-separator kt-separator--dashed"></div>
+
+            <h2>Order Summary</h2>
+
+            <h3>Math Textbook</h3>
+            <h3>History Textbook</h3>
+
           </div>
-        </div>
-
-        <div className="col-xl-6">
-
-        </div>
-      </div>
 
 
-
-      <div className="row">
-
-      </div>
+          <div className="kt-space-20" />
 
 
-      <div className="row">
+        </Card.Body>
+      </Card>
 
-      </div>
+
     </>
   );
 }
 
 function mapStateToProps(state) {
   return {
-//    business: state.business.store,
+    //    business: state.business.store,
   }
 }
 
