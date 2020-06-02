@@ -24,53 +24,19 @@ const initialState = {
 export const reducer = persistReducer(
   { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
   (state = initialState, action) => {
-    switch (action.type) {
-      //GOOD Example of changing a value in an array (By individual value)
-      case actionTypes.editCurbsideHours: {
-      
-        const { day, startTime } = action.payload;
-        console.log("state: ", state);
-        console.log("payload day: " + day)
-        console.log("payload startTime: " + startTime)
-        let newState = state;
-        const newStoreHours = newState.store.curbsideHours.map(d => d.day === day ? { ...d, timeOpen: startTime} : d);
-        newState.store.storeHours = newStoreHours;
-        newState.lastUpdated = Date.now();
-        return newState;
-      }           
+    switch (action.type) {            
       //BEST Example of changing a value in an array (By Object) 
-      case actionTypes.editStoreHours: {
-          const { day } = action.payload;
-          console.log("state: ", state);
-          console.log("payload: " + day)
+      case actionTypes.changeOrderStatus: {
+          const { order } = action.payload;
           let newState = state;
             newState =
             {
               ...newState,
-              store: {
-                ...newState.store,
-                storeHours: newState.store.storeHours.map(d => d.day === day.day ? day : d )
-              }
-            }
+                orders: newState.orders.map(o => o.orderNumber === order.orderNumber ? order : o )
+            }            
             newState.lastUpdated = Date.now();
           return newState;
-        }     
-
-      //BEST Example of changing a value (By Object)  
-      case actionTypes.changeOwner: {
-        const { status } = action.payload;
-        console.log("payload: " + status)
-        let newState = state;
-          newState =
-          {
-            ...newState,
-            store: {
-              ...newState.store, status
-            }
-          }
-          newState.lastUpdated = Date.now();
-        return newState;
-      }
+        }
 
       default:
         return state;
@@ -80,7 +46,7 @@ export const reducer = persistReducer(
 
 export const actions = {
   
-  changeOrderStatus: status => ({ type: actionTypes.changeOrderStatus, payload: { status } })
+  changeOrderStatus: (order) => ({ type: actionTypes.changeOrderStatus, payload: { order } })
 };
 
 export function* saga() {

@@ -4,6 +4,7 @@ import RunnerNavBar from "../../partials/content/RunnerNavBar";
 import { Button } from "react-bootstrap";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import { Card } from "react-bootstrap";
+import * as orders from "../../store/ducks/order.duck";
 
 function OrderSearch(props) {
   let id = 1;
@@ -68,7 +69,7 @@ function OrderSearch(props) {
         )}
         {thisOrder.orderNumber && (
           <div className={"p-4"}>
-            <Button type="submit">{thisOrder.orderStatus}</Button>
+      <UpdateOrderStatusButton thisOrder={thisOrder} event={props} />
           </div>
         )}
       </div>
@@ -76,10 +77,40 @@ function OrderSearch(props) {
   );
 }
 
+const handleStatusClick = (order, nav, props) => {
+  order.thisOrder.orderStatus = nav;
+  return order.event.changeOrderStatus(order.thisOrder);
+}
+
+const UpdateOrderStatusButton = (thisOrder, event) => {
+
+  switch (thisOrder.thisOrder.orderStatus) {
+    case 'In Queue':
+      return <Button onClick={() => { handleStatusClick(thisOrder, 'Prepared', event) }}>Order Prepared!</Button>;
+    case 'Prepared':
+      return <Button onClick={() => { handleStatusClick(thisOrder, 'Running', event) }}>On My Way!</Button>;
+    case 'Running':
+      return (
+        <div>
+          <Button onClick={() => { handleStatusClick(thisOrder, 'Delivered', event) }}>Order Delivered!</Button>;
+          <br />
+          <br />
+          <Button onClick={() => { handleStatusClick(thisOrder, 'Prepared', event) }}>Can't Find Customer!</Button>;
+        </div>
+      )
+    case 'Delivered':
+      return null;
+    default:
+      console.log(thisOrder.order)
+      return <p>Order status not recognized</p>
+  }
+}
+
+
 function mapStateToProps(state) {
   return {
     orders: state.orders,
   };
 }
 
-export default connect(mapStateToProps)(OrderSearch);
+export default connect(mapStateToProps, orders.actions)(OrderSearch);

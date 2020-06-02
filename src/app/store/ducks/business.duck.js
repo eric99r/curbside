@@ -29,11 +29,7 @@ export const reducer = persistReducer(
     switch (action.type) {
       //GOOD Example of changing a value in an array (By individual value)
       case actionTypes.editCurbsideHours: {
-      
         const { day, startTime } = action.payload;
-        console.log("state: ", state);
-        console.log("payload day: " + day)
-        console.log("payload startTime: " + startTime)
         let newState = state;
         const newStoreHours = newState.store.curbsideHours.map(d => d.day === day ? { ...d, timeOpen: startTime} : d);
         newState.store.storeHours = newStoreHours;
@@ -43,8 +39,6 @@ export const reducer = persistReducer(
       //BEST Example of changing a value in an array (By Object) 
       case actionTypes.editStoreHours: {
           const { day } = action.payload;
-          console.log("state: ", state);
-          console.log("payload: " + day)
           let newState = state;
             newState =
             {
@@ -61,7 +55,6 @@ export const reducer = persistReducer(
       //BEST Example of changing a value (By Object)  
       case actionTypes.changeOwner: {
         const { owner } = action.payload;
-        console.log("payload: " + owner)
         let newState = state;
           newState =
           {

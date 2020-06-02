@@ -14,7 +14,6 @@ function OrderPrepared(props) {
   );
 
   useEffect(() => {
-    console.log("After state update", order);
   }, [order, order.lastUpdated]);
 
   const allorders = orders.map((order) => {
