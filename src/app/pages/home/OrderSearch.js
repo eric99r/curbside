@@ -15,14 +15,11 @@ class OrderSearch extends Component{
   }
 
 render(){
-  console.log(this.props);
-  console.log(888);
   // eslint-disable-next-line eqeqeq
   const thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == this.state.orderId);
 console.log(this.state.orderId)
 console.log(this.props)
 console.log(thisOrder)
-console.log(887);
     
   return (
     <div>
@@ -112,17 +109,11 @@ const Details = (order, event) => {
 }
 
 const handleStatusClick = (order, nav, event) => {
-  console.log(order);
-  console.log(1230);
   order.thisOrder.orderStatus = nav;
   return order.event.changeOrderStatus(order.thisOrder);
 }
 
 const UpdateOrderStatusButton = (thisOrder, event) => {
-
-  console.log(thisOrder);
-  console.log(event);
-  console.log(123123);
 
   switch (thisOrder.thisOrder.orderStatus) {
     case 'In Queue':
