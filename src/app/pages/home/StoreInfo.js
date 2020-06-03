@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, {Component} from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
@@ -7,7 +7,7 @@ import {
   import * as order from "../../store/ducks/storeinfo.duck";
 import { metronic } from "../../../_metronic";
 import StoreHours from "./StoreHours";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 
 import {
   Dropdown,
@@ -20,33 +20,47 @@ import {
   Card
 } from "react-bootstrap";
 
+class StoreInfo extends Component{
 
-function StoreInfo(props) {
+// function handleTest() {
+//   this.setState({ testVal : false});
+// }
 
+// function StoreInfo(props) {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+     orderId: 0
+   }
+     this.storeHours = props.business.store.storeHours;
+     this.curbsideHours = props.business.store.curbsideHours;
+  //[this.show, this.setShow] = this.useState(false);
+     this.daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", 
+     "Friday", "Saturday", "Sunday"]
+  }
   
-  const { order } = props;
+  // const { order } = props;
 
-  const storeHours = props.business.store.storeHours;
-  const curbsideHours = props.business.store.curbsideHours;
+  // const storeHours = props.business.store.storeHours;
+  // const curbsideHours = props.business.store.curbsideHours;
 
-  console.log(storeHours);
-  console.log(props);
-  console.log(222);
+  // console.log(storeHours);
+  // console.log(props);
+  // console.log(222);
 
   // const state = {modalShow : false,
   //             show: false,
   //             setShow: false};
 
-  const [show, setShow] = React.useState(false);
-
-  const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", 
-                      "Friday", "Saturday", "Sunday"]
+  
 
 
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  console.log(storeHours.filter((x) => x.day == "Monday"));
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  //console.log(storeHours.filter((x) => x.day == "Monday"));
+  render(){
   return (
             <>
                   {/* <!--kt-portlet--height-fluid-half--> */}
@@ -103,12 +117,15 @@ function StoreInfo(props) {
                         </tr>
                       {
                         
-                        daysOfWeek.map((day)=>{ 
-                          return  <tr key={day} >
-                                    <td className={"text-center"}> <StoreHours key={day} day={day} curbside={false} /> </td>
-                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
-                                    <td className={"text-center"}> {  storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
-                                  </tr>
+                        this.daysOfWeek.map((day)=>{ 
+                          // return  <tr key={day} >
+                          //           <td className={"text-center"}> <StoreHours key={day} day={day} curbside={false} /> </td>
+                          //           <td className={"text-center"}> {  this.storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
+                          //           <td className={"text-center"}> {  this.storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
+                          //         </tr>
+
+                          return <StoreHours key={day} day={day} curbside={false} /> 
+
                         })
                       }
                       </table>
@@ -142,12 +159,15 @@ function StoreInfo(props) {
                         </tr>
                       {
                         
-                        daysOfWeek.map((day)=>{ 
-                          return  <tr key={day} >
-                                    <td className={"text-center"}> <StoreHours key={day} day={day} curbside={true} /> </td>
-                                    <td className={"text-center"}> {  curbsideHours.filter((x) => x.day === day)[0].timeOpen} </td>
-                                    <td className={"text-center"}> {  curbsideHours.filter((x) => x.day === day)[0].timeClosed} </td>
-                                  </tr>
+                        this.daysOfWeek.map((day)=>{ 
+                          // return  <tr key={day} >
+                          //           <td className={"text-center"}> <StoreHours key={day} day={day} curbside={true} /> </td>
+                          //           <td className={"text-center"}> {  this.curbsideHours.filter((x) => x.day === day)[0].timeOpen} </td>
+                          //           <td className={"text-center"}> {  this.curbsideHours.filter((x) => x.day === day)[0].timeClosed} </td>
+                          //         </tr>
+
+                          return <StoreHours key={day} day={day} curbside={true} /> 
+
                         })
                       }
                       </table>
@@ -156,7 +176,7 @@ function StoreInfo(props) {
                   </div>
 
 
-
+<Button onClick={()=>{console.log(this.props)}}>Tester</Button>
 </Card.Body>
 </Card>
 
@@ -165,12 +185,14 @@ function StoreInfo(props) {
     </>
   );
 }
+}
 
-// function mapStateToProps(state) {
-//   return {
-//     business: state.store,
-//   }
-// }
+
+// // function mapStateToProps(state) {
+// //   return {
+// //     business: state.store,
+// //   }
+// // }
 
 // export default connect(mapStateToProps, "")(StoreInfo);
 function mapStateToProps(state) {

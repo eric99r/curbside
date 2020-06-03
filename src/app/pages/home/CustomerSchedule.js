@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, {Component} from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
@@ -19,29 +19,38 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 
-function Customer(props) {
-  const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
-    state => ({
-      brandColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.brand"
-      ),
-      dangerColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.danger"
-      ),
-      successColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.success"
-      ),
-      primaryColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.primary"
-      )
-    })
-  );
+class Customer extends Component{
+  constructor(props) {
+     super(props);
+    this.state = {
+     testVal: "0"
+   }
+  }
+// function Customer(props) {
+  // const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
+  //   state => ({
+  //     brandColor: metronic.builder.selectors.getConfig(
+  //       state,
+  //       "colors.state.brand"
+  //     ),
+  //     dangerColor: metronic.builder.selectors.getConfig(
+  //       state,
+  //       "colors.state.danger"
+  //     ),
+  //     successColor: metronic.builder.selectors.getConfig(
+  //       state,
+  //       "colors.state.success"
+  //     ),
+  //     primaryColor: metronic.builder.selectors.getConfig(
+  //       state,
+  //       "colors.state.primary"
+  //     )
+  //   })
+  // );
 
-
+  render(){
+    //const testVal = this.state.testVal;
+    const testVal = "false";
   return (
     <>
       <Card>
@@ -77,12 +86,14 @@ function Customer(props) {
               </Form.Group>
               <div className={"d-flex justify-content-center"}>
                 <Button
-                  onClick={() => { props.history.push('/customerArrival') }}>Submit</Button>
+                  //this.setState({ testVal : false});
+                  onClick={() => this.setState({ testVal : "1"})}>Submit</Button>
+                  {/* //onClick={() => { props.history.push('/customerArrival') }}>Submit</Button> */}
               </div>
             </Form>
 
             <div className="kt-separator kt-separator--dashed"></div>
-
+            <p>{this.state.testVal}</p>
             <h2>Order Summary</h2>
 
             <h3>Math Textbook</h3>
@@ -101,7 +112,7 @@ function Customer(props) {
     </>
   );
 }
-
+}
 function mapStateToProps(state) {
   return {
     //    business: state.business.store,
