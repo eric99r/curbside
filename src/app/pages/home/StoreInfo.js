@@ -22,12 +22,6 @@ import {
 
 class StoreInfo extends Component{
 
-// function handleTest() {
-//   this.setState({ testVal : false});
-// }
-
-// function StoreInfo(props) {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -35,38 +29,13 @@ class StoreInfo extends Component{
    }
      this.storeHours = props.business.store.storeHours;
      this.curbsideHours = props.business.store.curbsideHours;
-  //[this.show, this.setShow] = this.useState(false);
      this.daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", 
      "Friday", "Saturday", "Sunday"]
   }
   
-  // const { order } = props;
-
-  // const storeHours = props.business.store.storeHours;
-  // const curbsideHours = props.business.store.curbsideHours;
-
-  // console.log(storeHours);
-  // console.log(props);
-  // console.log(222);
-
-  // const state = {modalShow : false,
-  //             show: false,
-  //             setShow: false};
-
-  
-
-
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-  //console.log(storeHours.filter((x) => x.day == "Monday"));
   render(){
   return (
             <>
-                  {/* <!--kt-portlet--height-fluid-half--> */}
-
-                  {/* <div className="kt-section">
-                    <span className="kt-section__sub"> */}
                                       
                   <Card>
                     <Card.Body>
@@ -82,28 +51,17 @@ class StoreInfo extends Component{
                           <Form.Label>Location</Form.Label>
                           <Form.Control as="select">
                             <option>Choose...</option>
-                            <option>Dominican University</option>
-                            <option>Knox College</option>
+                            <option>{this.props.business.store.location}</option>
                           </Form.Control>
                           <div className="kt-space-20" />
                           <Form.Label>Sub-Location</Form.Label>
                           <Form.Control as="select">
                             <option>Choose...</option>
-                            <option>Main Str</option>
-                            <option>By the cafeteria</option>
+                            <option>{this.props.business.store.curbsideLocation}</option>
                           </Form.Control>
 
                         </Form.Group>
                       </Form>
-
-                      {/* Store Hours
-                      <ul style={{listStyleType : "none"}}>
-                      {
-                        daysOfWeek.map((day)=>{ 
-                          return  <li key={day} style={{float : "left"}}><StoreHours key={day} day={day} curbside={false} /></li>
-                        })
-                      }
-                      </ul> */}
 
                       <div className={"d-flex justify-content-center"}>
                       <h2 className={"text-center"}>Store Hours</h2>
@@ -117,15 +75,8 @@ class StoreInfo extends Component{
                         </tr>
                       {
                         
-                        this.daysOfWeek.map((day)=>{ 
-                          // return  <tr key={day} >
-                          //           <td className={"text-center"}> <StoreHours key={day} day={day} curbside={false} /> </td>
-                          //           <td className={"text-center"}> {  this.storeHours.filter((x) => x.day === day)[0].timeOpen} </td>
-                          //           <td className={"text-center"}> {  this.storeHours.filter((x) => x.day === day)[0].timeClosed} </td>
-                          //         </tr>
-
+                        this.daysOfWeek.map((day)=>{
                           return <StoreHours key={day} day={day} curbside={false} /> 
-
                         })
                       }
                       </table>
@@ -136,16 +87,6 @@ class StoreInfo extends Component{
                       <Form.Group className={"d-flex justify-content-center"} controlId="formBasicChecbox">
                         <Form.Check type="checkbox" label="Curbside hours different from store hours" />
                       </Form.Group>
-
-                      {/* Curbside Hours
-
-                      <ul style={{listStyleType : "none"}}>                      
-                      {
-                        daysOfWeek.map((day)=>{
-                          return <li key={day}  style={{float : "left"}}><StoreHours key={day} day={day} curbside={true} /></li>
-                        })
-                      }
-                      </ul> */}
 
                       <div className={"d-flex justify-content-center"}>
                       <h2 className={"text-center"}>Curbside Hours</h2>
@@ -160,25 +101,16 @@ class StoreInfo extends Component{
                       {
                         
                         this.daysOfWeek.map((day)=>{ 
-                          // return  <tr key={day} >
-                          //           <td className={"text-center"}> <StoreHours key={day} day={day} curbside={true} /> </td>
-                          //           <td className={"text-center"}> {  this.curbsideHours.filter((x) => x.day === day)[0].timeOpen} </td>
-                          //           <td className={"text-center"}> {  this.curbsideHours.filter((x) => x.day === day)[0].timeClosed} </td>
-                          //         </tr>
-
                           return <StoreHours key={day} day={day} curbside={true} /> 
-
                         })
                       }
                       </table>
                       </div>
-                      
-                  </div>
+                        
+                    </div>
 
-
-<Button onClick={()=>{console.log(this.props)}}>Tester</Button>
-</Card.Body>
-</Card>
+                    </Card.Body>
+                  </Card>
 
 
 
@@ -187,14 +119,6 @@ class StoreInfo extends Component{
 }
 }
 
-
-// // function mapStateToProps(state) {
-// //   return {
-// //     business: state.store,
-// //   }
-// // }
-
-// export default connect(mapStateToProps, "")(StoreInfo);
 function mapStateToProps(state) {
 
   console.log(state);

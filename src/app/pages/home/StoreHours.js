@@ -78,26 +78,74 @@ handleClosedTimeChange(event){
   });
 }
 
+timeBuckets() {
+  //increments of 15min
+
+  //Input
+  var startTime = "2000-01-01 04:30:00"
+  var endTime = "2000-01-01 23:30:00"
+
+  //Parse In
+  var parseIn = function(date_time){
+      var d = new Date();
+      d.setHours(date_time.substring(11,13));
+      d.setMinutes(date_time.substring(14,16));
+
+    return d;
+  }
+
+  //make list
+  var getTimeIntervals = function (time1, time2) {
+      var arr = [];
+      while(time1 < time2){
+
+        var timeString = ""
+
+        var pm = time1.getHours() > 11;
+
+        var hours = (time1.getHours() % 12).toString();
+
+        var min = time1.getMinutes().toString();
+
+        if (min == "0")
+          min = "00"
+
+        if (hours == "0")
+          hours = "12"
+
+        var amOrPm = pm ? "pm" : "am";
+
+        timeString = hours.toString() + ":" + min.toString() + amOrPm;
+
+        arr.push(timeString);
+
+        time1.setMinutes(time1.getMinutes() + 15);
+    }
+    return arr;
+  }
+
+  startTime = parseIn(startTime);
+  endTime = parseIn(endTime);
+
+  var intervals = getTimeIntervals(startTime, endTime);
+
+  return intervals;
+}
+
+
 render(){
 
-  const openTime = this.props.curbside ? 
-    this.props.business.store.curbsideHours.filter((x) => x.day === this.day)[0].timeOpen : 
-    this.props.business.store.storeHours.filter((x) => x.day === this.day)[0].timeOpen;
+  const timeBuckets = this.timeBuckets();
 
-  const closedTime = this.props.curbside ? 
-    this.props.business.store.curbsideHours.filter((x) => x.day === this.day)[0].timeClosed : 
-    this.props.business.store.storeHours.filter((x) => x.day === this.day)[0].timeClosed;
-
-
-  var show=false;
   const setShow = (x) => {this.setState({show: x})};
   let handleClose = () => setShow(false);
   let handleShow = () => setShow(true);
         return (
                 <tr>
                   <td>
-                <div>
-                <Button variant="primary" onClick={handleShow} className={"w-100 p-3"}>
+                    
+                    <div>
+                      <Button variant="primary" onClick={handleShow} className={"w-100 p-3"}>
                         {this.props.day}
                       </Button>
 
@@ -115,16 +163,21 @@ render(){
                             <Form.Label>Open</Form.Label>
                               <Form.Control as="select" onChange={this.handleOpenTimeChange}>
                                 <option>Choose...</option>
-                                <option>8:00am</option>
-                                <option>8:15am</option>
-                                <option>8:30am</option>
+
+                                {timeBuckets.map((bucket)=>{
+                                  return <option>{bucket}</option>;
+
+                                })
+                              }
                               </Form.Control>
                             <Form.Label>Close</Form.Label>
-                              <Form.Control as="select" onChange={this.handleClosedTimeChange}>
+                              <Form.Control style={{ height: "auto", maxHeight: "200px"}} as="select" onChange={this.handleClosedTimeChange}>
                                 <option>Choose...</option>
-                                <option>4:00pm</option>
-                                <option>4:15pm</option>
-                                <option>4:30pm</option>
+                                {timeBuckets.map((bucket)=>{
+                                  return <option>{bucket}</option>;
+
+                                })
+                              }
                               </Form.Control>
                           </Form>
 
@@ -139,7 +192,7 @@ render(){
                         </Modal.Footer>
                       </Modal>
                       </div>
-                        </td>
+                    </td>
 
                     <td className={"text-center"}>
                       {this.state.openTime}
@@ -147,8 +200,8 @@ render(){
 
                     <td className={"text-center"}>
                       {this.state.closedTime}
-                      </td>
-                      </tr>
+                    </td>
+                  </tr>
             
         );}
       
