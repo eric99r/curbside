@@ -1,13 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, {Component} from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import {
   Portlet,
   PortletBody
 } from "../../partials/content/Portlet";
-import { metronic } from "../../../_metronic";
-//import { browserHistory } from './react-router'
-//import { push } from 'react-router-redux';
 import { Button, Form, Card } from "react-bootstrap";
 
 import {
@@ -21,36 +18,13 @@ import {
 
 class Customer extends Component{
   constructor(props) {
-     super(props);
+    super(props);
     this.state = {
-     testVal: "0"
-   }
+      testVal: "0"
+    }
   }
-// function Customer(props) {
-  // const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
-  //   state => ({
-  //     brandColor: metronic.builder.selectors.getConfig(
-  //       state,
-  //       "colors.state.brand"
-  //     ),
-  //     dangerColor: metronic.builder.selectors.getConfig(
-  //       state,
-  //       "colors.state.danger"
-  //     ),
-  //     successColor: metronic.builder.selectors.getConfig(
-  //       state,
-  //       "colors.state.success"
-  //     ),
-  //     primaryColor: metronic.builder.selectors.getConfig(
-  //       state,
-  //       "colors.state.primary"
-  //     )
-  //   })
-  // );
 
   render(){
-    //const testVal = this.state.testVal;
-    const testVal = "false";
   return (
     <>
       <Card>
@@ -60,11 +34,9 @@ class Customer extends Component{
             <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
 
             <div className={"d-flex justify-content-center"}>
-              <p className={"text-center ml-5 pt-3"}>Please schedule a time to pick up your order.
-                      </p>
+              <p className={"text-center ml-5 pt-3"}>Please schedule a time to pick up your order.</p>
             </div>
 
-            {/* <Form action="/customerArrival"> */}
             <Form>
               <Form.Group controlId="exampleForm.ControlTextarea1">
 
@@ -85,10 +57,7 @@ class Customer extends Component{
                 </Form.Control>
               </Form.Group>
               <div className={"d-flex justify-content-center"}>
-                <Button
-                  //this.setState({ testVal : false});
-                  onClick={() => this.setState({ testVal : "1"})}>Submit</Button>
-                  {/* //onClick={() => { props.history.push('/customerArrival') }}>Submit</Button> */}
+                <Button onClick={() => this.setState({ testVal : "1"})}>Submit</Button>
               </div>
             </Form>
 
@@ -115,7 +84,6 @@ class Customer extends Component{
 }
 function mapStateToProps(state) {
   return {
-    //    business: state.business.store,
   }
 }
 

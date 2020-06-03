@@ -26,17 +26,7 @@ const initialState = {
 export const reducer = persistReducer(
   { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
   (state = initialState, action) => {
-    switch (action.type) {
-      //GOOD Example of changing a value in an array (By individual value)
-      // case actionTypes.editCurbsideHours: {
-      //   const { day, startTime } = action.payload;
-      //   let newState = state;
-      //   const newStoreHours = newState.store.curbsideHours.map(d => d.day === day ? { ...d, timeOpen: startTime} : d);
-      //   newState.store.storeHours = newStoreHours;
-      //   newState.lastUpdated = Date.now();
-      //   return newState;
-      // }     
-      
+    switch (action.type) {      
       case actionTypes.editCurbsideHours: {
         const { day } = action.payload;
 
