@@ -20,7 +20,6 @@ class Customer extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      testVal: "0"
     }
   }
 
@@ -57,12 +56,11 @@ class Customer extends Component{
                 </Form.Control>
               </Form.Group>
               <div className={"d-flex justify-content-center"}>
-                <Button onClick={() => this.setState({ testVal : "1"})}>Submit</Button>
+                <Button onClick={() => { this.props.history.push('/customerArrival') }}>Submit</Button>
               </div>
             </Form>
 
             <div className="kt-separator kt-separator--dashed"></div>
-            <p>{this.state.testVal}</p>
             <h2>Order Summary</h2>
 
             <h3>Math Textbook</h3>
