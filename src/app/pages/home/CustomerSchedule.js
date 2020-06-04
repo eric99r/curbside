@@ -79,13 +79,17 @@ class CustomerSchedule extends Component{
 
             <div className="kt-separator kt-separator--dashed"></div>
             
-              <h2>Order Summary</h2>
+              <div>
+                <h2>Order Summary:</h2>
+                <h4>{"Order ID: " + this.thisOrder.orderNumber}</h4>
+                <h4>{"Name: " + this.thisOrder.name}</h4>
 
-              {this.thisOrder.items.map((x)=> {
+                {this.thisOrder.items.map((x)=> {
 
-                  return <h3>{x.itemName}</h3>
+                    return <h6>{x.itemName}</h6>
 
-              })}
+                })}
+              </div>
 
           </div>
 
