@@ -22,35 +22,46 @@ import {
 
 class CustomerArrival extends Component{
   constructor(props) {
-    console.log(props);
-    console.log(2288);
     super(props);
-    // this.state = {
-      
-    // };
+    this.state = {
+      arrivedLocation: "",
+      carDescription: "",
+      arrivedTime: ""
+    };
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
-    //this.thisOrder = props.orders.orders.filter((x)=>{x.orderNumber==2})[0];
-
     this.handleCustomerArrived = this.handleCustomerArrived.bind(this);
+    this.handleArrivedLocationChange = this.handleArrivedLocationChange.bind(this);
+    this.handleCarDescriptionChange = this.handleCarDescriptionChange.bind(this);
   }
 
   handleCustomerArrived(event) {
-
     var orderToUpdate = this.thisOrder;
 
     orderToUpdate.arrived = true;
-    console.log(this.props);
+    orderToUpdate.location = this.state.arrivedLocation;
+    orderToUpdate.car = this.state.carDescription;
     
     this.props.customerArrived(orderToUpdate);
 
   }
+
+  handleArrivedLocationChange(event) {
+
+    this.setState({arrivedLocation: event.target.value});
+
+  }
+
+  handleCarDescriptionChange(event) {
+
+    this.setState({carDescription: event.target.value});
+
+  }
+
   render() {
   return (
     <>
       <Card>
         <Card.Body>
-          {/* <!--kt-portlet--height-fluid-half--> */}
-
           <div class="kt-section">
             <span classname="kt-section__sub">
 
@@ -67,10 +78,10 @@ class CustomerArrival extends Component{
                 <Form.Group controlId="exampleForm.ControlTextarea1">
 
                   <Form.Label>What model/color is your car?</Form.Label>
-                  <Form.Control  as="textarea" rows="3" />
+                  <Form.Control  as="textarea" rows="3" onChange={this.handleCarDescriptionChange}/>
                   <div className="kt-space-20" />
                   <Form.Label>Where are you waiting?</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
+                  <Form.Control as="textarea" rows="3" onChange={this.handleArrivedLocationChange}/>
                 </Form.Group>
                 <div className={"d-flex justify-content-center"}>
                   <Button onClick={this.handleCustomerArrived}>I'm here!</Button>
@@ -80,22 +91,19 @@ class CustomerArrival extends Component{
 
             <div className="kt-separator kt-separator--dashed"></div>
 
+            
             <h2>Order Summary</h2>
 
-            <h3>Math Textbook</h3>
-            <h3>History Textbook</h3>
+            {this.thisOrder.items.map((x)=> {
+
+                return <h3>{x.itemName}</h3>
+
+            })}
 
           </div>
 
         </Card.Body>
       </Card>
-
-
-
-
-
-
-
     </>
   );
 }

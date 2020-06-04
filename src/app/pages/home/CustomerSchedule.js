@@ -24,11 +24,7 @@ class CustomerSchedule extends Component{
     console.log(props);
     console.log(222);
     super(props);
-    // this.state = {
-      
-    // };
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
-    //this.thisOrder = props.orders.orders.filter((x)=>{x.orderNumber==2})[0];
 
     this.handlePickupTimeSubmit = this.handlePickupTimeSubmit.bind(this);
   }
@@ -44,7 +40,6 @@ class CustomerSchedule extends Component{
 
   }
 
-
   render(){
     console.log(this.props);
     console.log(99);
@@ -53,7 +48,6 @@ class CustomerSchedule extends Component{
       <Card>
         <Card.Body>
           <div >
-            <p>{this.thisOrder.orderStatus}</p>
             <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
 
             <div className={"d-flex justify-content-center"}>
@@ -92,15 +86,11 @@ class CustomerSchedule extends Component{
             
               <h2>Order Summary</h2>
 
-              {/* <h3>Math Textbook</h3>
-              <h3>History Textbook</h3> */}
-
               {this.thisOrder.items.map((x)=> {
 
                   return <h3>{x.itemName}</h3>
 
               })}
-
 
           </div>
 
