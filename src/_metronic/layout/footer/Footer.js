@@ -5,7 +5,7 @@ import * as builder from "../../ducks/builder";
 
 class Footer extends React.Component {
   render() {
-    const today = new Date().getFullYear();
+    //const today = new Date().getFullYear();
     return (
       <div
       // className={`kt-footer ${this.props.footerClasses} kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop`}

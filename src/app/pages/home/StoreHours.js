@@ -20,10 +20,7 @@ class StoreHours extends Component {
       show: false,
     }
     this.closeHours = React.createRef();
-    this.openHours = React.createRef();
-    
-
- 
+    this.openHours = React.createRef(); 
   }
 
   timeBuckets() {

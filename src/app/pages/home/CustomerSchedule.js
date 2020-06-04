@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 import React, {Component} from "react";
 import { connect } from "react-redux";
@@ -86,7 +87,7 @@ class CustomerSchedule extends Component{
 
                 {this.thisOrder.items.map((x)=> {
 
-                    return <h6>{x.itemName}</h6>
+                    return <h6 key={x.itemName}>{x.itemName}</h6>
 
                 })}
               </div>

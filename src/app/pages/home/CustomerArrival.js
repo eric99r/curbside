@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-unused-vars */
 import { connect, useSelector } from "react-redux";
 import {
@@ -63,8 +64,8 @@ class CustomerArrival extends Component{
     <>
       <Card>
         <Card.Body>
-          <div class="kt-section">
-            <span classname="kt-section__sub">
+          <div className="kt-section">
+            <span className="kt-section__sub">
 
               <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
               <div className={"d-flex justify-content-center"}>
@@ -100,7 +101,7 @@ class CustomerArrival extends Component{
 
               {this.thisOrder.items.map((x)=> {
 
-                  return <h6>{x.itemName}</h6>
+                  return <h6 key={x.itemName}>{x.itemName}</h6>
 
               })}
             </div>
