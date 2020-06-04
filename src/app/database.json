@@ -4,6 +4,7 @@
     "owner": "James",
     "location": "College Station, TX",
     "curbsideLocation": "In front of Circle Drive",
+    "curbsideHoursDifferentFromStore": true,
     "storeHours": [
       {
         "day": "Sunday",

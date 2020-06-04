@@ -14,7 +14,8 @@ import database from '../../database.json';
 export const actionTypes = {
   editStoreHours: "[EditStoreHours] Action",
   editCurbsideHours: "[EditCurbsideHours] Action",
-  changeOwner: "[ChangeOwner] Action"
+  changeOwner: "[ChangeOwner] Action",
+  toggleCurbsideHoursDifferentFromStore: "[ToggleCurbsideHoursDifferentFromStore] Action"
 };
 
 //What you'll access in the pages you're mapping the reducer to
@@ -74,6 +75,20 @@ export const reducer = persistReducer(
         return newState;
       }
 
+      case actionTypes.toggleCurbsideHoursDifferentFromStore: {
+        let newState = state;
+          newState =
+          {
+            ...newState,
+            store: {
+              ...newState.store, 
+              curbsideHoursDifferentFromStore: !state.store.curbsideHoursDifferentFromStore
+            }
+          }
+          newState.lastUpdated = Date.now();
+        return newState;
+      }
+
       default:
         return state;
     }
@@ -83,9 +98,13 @@ export const reducer = persistReducer(
 export const actions = {
   //Multiple parameter actions
   editCurbsideHours: (day) => ({ type: actionTypes.editCurbsideHours, payload: { day } }),
+ 
   //Single paramater actions
   editStoreHours: day => ({ type: actionTypes.editStoreHours, payload: { day } }),
-  changeOwner: owner => ({ type: actionTypes.changeOwner, payload: { owner } })
+  changeOwner: owner => ({ type: actionTypes.changeOwner, payload: { owner } }),
+
+  //Zero parameter actions
+  toggleCurbsideHoursDifferentFromStore: () => ({ type: actionTypes.toggleCurbsideHoursDifferentFromStore })
 };
 
 export function* saga() {
