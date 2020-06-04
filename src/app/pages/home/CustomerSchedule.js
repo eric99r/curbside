@@ -21,8 +21,6 @@ import {
 
 class CustomerSchedule extends Component{
   constructor(props) {
-    console.log(props);
-    console.log(222);
     super(props);
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
 
@@ -34,15 +32,12 @@ class CustomerSchedule extends Component{
     var orderToUpdate = this.thisOrder;
 
     orderToUpdate.pickupTime = event.target.value;
-    console.log(this.props);
     
     this.props.changePickupTime(orderToUpdate);
 
   }
 
   render(){
-    console.log(this.props);
-    console.log(99);
   return (
     <>
       <Card>
@@ -94,9 +89,7 @@ class CustomerSchedule extends Component{
 
           </div>
 
-
           <div className="kt-space-20" />
-
 
         </Card.Body>
       </Card>

@@ -89,7 +89,6 @@ class StoreHours extends Component {
     };
 
     let handleSave = (event) => {
-      console.log(this.closeHours.current.value) // from elements property
       if(this.props.curbside){
         const dayData = this.props.business.store.curbside.filter((x) => x.day === this.props.day)[0]
         if(this.openHours.current.value !== "Choose...")
@@ -98,7 +97,6 @@ class StoreHours extends Component {
           if(this.closeHours.current.value !== "Choose...")
           dayData.timeClosed = this.closeHours.current.value;
 
-          console.log(dayData)
         this.props.editCurbsideHours(dayData)
 
       }
@@ -110,7 +108,6 @@ class StoreHours extends Component {
         if(this.closeHours.current.value !== "Choose...")
         dayData.timeClosed = this.closeHours.current.value;
 
-        console.log(dayData)
         this.props.editStoreHours(dayData)
 
       }
@@ -119,7 +116,6 @@ class StoreHours extends Component {
 
     let handleClose = () => setShow(false);
     let handleShow = () => setShow(true);
-    console.log(this.props)
 
     return (
       <tr>
