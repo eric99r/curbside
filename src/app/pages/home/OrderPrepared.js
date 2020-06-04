@@ -4,7 +4,7 @@ import RunnerNavBar from "../../partials/content/RunnerNavBar";
 import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import * as order from "../../store/ducks/order.duck";
-
+import "../../../custom.scss";
 function OrderPrepared(props) {
   const history = useHistory();
   const { order } = props;
@@ -25,8 +25,8 @@ function OrderPrepared(props) {
           history.push("/orderDetails?orderId=" + order.orderNumber)
         }
       >
-        <Card.Body style={order.arrived ? {backgroundColor : "#a9d9b4"} : {backgroundColor : ""}}>
-          <div className={"d-flex"}>
+        <Card.Body className={order.arrived ? "order-arrived" : ""}>
+          <div className={"d-flex" }>
             <Card.Text className={"mr-5"} style={{ color: "gray" }}>
               {order.pickupTime}
             </Card.Text>
