@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import CustomerSchedule from "./CustomerSchedule";
 import CustomerArrival from "./CustomerArrival";
-import TestPage from "./TestPage";
 import StoreInfo from "./StoreInfo";
 import OrderQueue from "./OrderQueue";
 import OrderPrepared from "./OrderPrepared";
@@ -27,7 +26,6 @@ export default function HomePage() {
         }
         <Route path="/customerArrival" component={CustomerArrival} />
         <Route path="/customerSchedule" component={CustomerSchedule} />
-        <Route path="/testPage" component={TestPage} />
         <Route path="/storeinfo" component={StoreInfo} />
         <Route path="/orderQueue" component={OrderQueue} />
         <Route path="/orderPrepared" component={OrderPrepared} />

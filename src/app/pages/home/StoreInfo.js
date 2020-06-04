@@ -1,108 +1,107 @@
 /* eslint-disable no-unused-vars */
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  Portlet,
-  PortletBody} from "../../partials/content/Portlet";
 import StoreHours from "./StoreHours";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 import { Card } from "react-bootstrap";
 
-class StoreInfo extends Component{
+class StoreInfo extends Component {
 
   constructor(props) {
     console.log(props);
     console.log(224);
     super(props);
     this.state = {
-     orderId: 0
-   }
-     this.storeHours = props.business.store.storeHours;
-     this.curbsideHours = props.business.store.curbsideHours;
-     this.daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", 
-     "Friday", "Saturday", "Sunday"]
+      orderId: 0
+    }
+    this.storeHours = props.business.store.storeHours;
+    this.curbsideHours = props.business.store.curbsideHours;
+    this.daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday",
+      "Friday", "Saturday", "Sunday"]
   }
-  
-  render(){
-  return (
-            <>
-                                      
-              <Card>
-                <Card.Body>
-                <div>
-                  <span>
-                  <h1 className={"text-center ml-5 pt-3"}>Store Information</h1>
-                </span>
+
+  render() {
+    return (
+      <Card>
+        <Card.Body>
+          <div>
+            <span>
+              <h1 className={"text-center ml-5 pt-3"}>Store Information</h1>
+            </span>
 
 
-                  <Form>
-                    <Form.Group >
+            <Form>
+              <Form.Group >
 
-                      <Form.Label>Location</Form.Label>
-                      <Form.Control as="select">
-                        <option>Choose...</option>
-                        <option>{this.props.business.store.location}</option>
-                      </Form.Control>
-                      <div className="kt-space-20" />
-                      <Form.Label>Sub-Location</Form.Label>
-                      <Form.Control as="select">
-                        <option>Choose...</option>
-                        <option>{this.props.business.store.curbsideLocation}</option>
-                      </Form.Control>
+                <Form.Label>Location</Form.Label>
+                <Form.Control as="select">
+                  <option>Choose...</option>
+                  <option>{this.props.business.store.location}</option>
+                </Form.Control>
+                <div className="kt-space-20" />
+                <Form.Label>Sub-Location</Form.Label>
+                <Form.Control as="select">
+                  <option>Choose...</option>
+                  <option>{this.props.business.store.curbsideLocation}</option>
+                </Form.Control>
 
-                    </Form.Group>
-                  </Form>
+              </Form.Group>
+            </Form>
 
-                  <div className={"d-flex justify-content-center"}>
-                  <h2 className={"text-center"}>Store Hours</h2>
-                  </div>
-                  <div className={"d-flex justify-content-center"}>
-                  <table style={{width: "100%"}}>
-                    <tr>
-                      <th className={"text-center"}>Day</th>
-                      <th className={"text-center"}>Open</th>
-                      <th className={"text-center"}>Close</th>
-                    </tr>
-                  {
-                    
-                    this.daysOfWeek.map((day)=>{
-                      return <StoreHours key={day} day={day} curbside={false} /> 
-                    })
-                  }
-                  </table>
+            <div className={"d-flex justify-content-center"}>
+              <h2 className={"text-center"}>Store Hours</h2>
+            </div>
+            <div className={"d-flex justify-content-center"}>
+              <table style={{ width: "100%" }}>
+                <tbody>
+                <tr>
+                  <th className={"text-center"}>Day</th>
+                  <th className={"text-center"}>Open</th>
+                  <th className={"text-center"}>Close</th>
+                </tr>
+                {
 
-                  </div>
-                  <div className="kt-space-20" />
+                  this.daysOfWeek.map((day) => {
+                    return <StoreHours key={day} day={day} curbside={false} 
+                    storeHours={this.storeHours.filter(x => x.day === day)[0]} />
+                  })
+                }
+                </tbody>
+              </table>
 
-                  <Form.Group className={"d-flex justify-content-center"} controlId="formBasicChecbox">
-                    <Form.Check type="checkbox" label="Curbside hours different from store hours" />
-                  </Form.Group>
+            </div>
+            <div className="kt-space-20" />
 
-                  <div className={"d-flex justify-content-center"}>
-                  <h2 className={"text-center"}>Curbside Hours</h2>
-                  </div>
-                  <div className={"d-flex justify-content-center"}>
-                  <table style={{width: "100%"}}>
-                    <tr>
-                      <th className={"text-center"}>Day</th>
-                      <th className={"text-center"}>Open</th>
-                      <th className={"text-center"}>Close</th>
-                    </tr>
-                  {
-                    
-                    this.daysOfWeek.map((day)=>{ 
-                      return <StoreHours key={day} day={day} curbside={true} /> 
-                    })
-                  }
-                  </table>
-                  </div>
-                    
-                </div>
+            <Form.Group className={"d-flex justify-content-center"} controlId="formBasicChecbox">
+              <Form.Check type="checkbox" label="Curbside hours different from store hours" />
+            </Form.Group>
 
-                </Card.Body>
-              </Card>
-      </>
+            <div className={"d-flex justify-content-center"}>
+              <h2 className={"text-center"}>Curbside Hours</h2>
+            </div>
+            <div className={"d-flex justify-content-center"}>
+              <table style={{ width: "100%" }}>
+                <tbody>
+                <tr>
+                  <th className={"text-center"}>Day</th>
+                  <th className={"text-center"}>Open</th>
+                  <th className={"text-center"}>Close</th>
+                </tr>
+                {
+                  this.daysOfWeek.map((day) => {
+                    return <StoreHours key={day} day={day} curbside={true} 
+                    storeHours={this.curbsideHours.filter(x => x.day === day)[0]} />
+                  })
+                }
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </Card.Body>
+      </Card>
     );
   }
 }
