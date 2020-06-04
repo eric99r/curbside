@@ -83,6 +83,7 @@
     {
       "orderNumber": 1,
       "orderStatus": "In Queue",
+      "arrived": false,
       "pickupTime": "3:45pm",
       "timeCompleted": "",
       "name": "Michael",
@@ -105,6 +106,7 @@
     {
       "orderNumber": 2,
       "orderStatus": "In Queue",
+      "arrived": false,
       "pickupTime": "2:45pm",
       "timeCompleted": "",
       "name": "Eric",
@@ -127,6 +129,7 @@
     {
       "orderNumber": 3,
       "orderStatus": "Prepared",
+      "arrived": true,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Shaquille O'Neal",
@@ -149,6 +152,7 @@
     {
       "orderNumber": 4,
       "orderStatus": "Prepared",
+      "arrived": false,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Derrick Rose",
@@ -171,6 +175,7 @@
     {
       "orderNumber": 5,
       "orderStatus": "Running",
+      "arrived": true,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Ron Artest",
@@ -193,6 +198,7 @@
     {
       "orderNumber": 6,
       "orderStatus": "Running",
+      "arrived": true,
       "pickupTime": "2:00pm",
       "timeCompleted": "",
       "name": "LeBron James",
@@ -215,6 +221,7 @@
     {
       "orderNumber": 7,
       "orderStatus": "Delivered",
+      "arrived": true,
       "pickupTime": "1:00pm",
       "timeCompleted": "1:29",
       "name": "Giannis A.",
@@ -237,6 +244,7 @@
     {
       "orderNumber": 8,
       "orderStatus": "Delivered",
+      "arrived": true,
       "pickupTime": "1:00pm",
       "timeCompleted": "1:29pm",
       "name": "Blake Griffin",
