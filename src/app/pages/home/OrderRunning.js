@@ -4,7 +4,7 @@ import RunnerNavBar from "../../partials/content/RunnerNavBar";
 import { Card } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import * as order from "../../store/ducks/order.duck";
-
+import "../../../custom.scss";
 function OrderRunning(props) {
   const history = useHistory();
   const { order } = props;
@@ -16,6 +16,8 @@ function OrderRunning(props) {
   useEffect(() => {}, [order, order.lastUpdated]);
 
   const allorders = orders.map((order) => {
+    console.log(order);
+    console.log(1);
     return (
       <Card
         key={order.orderNumber}
@@ -25,7 +27,7 @@ function OrderRunning(props) {
         }
         className="mr-5"
       >
-        <Card.Body>
+        <Card.Body className={order.arrived ? "order-arrived" : ""}>
           <div className={"d-flex"}>
             <Card.Text className={"mr-5"} style={{ color: "gray" }}>
               {order.pickupTime}

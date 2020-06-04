@@ -6,6 +6,7 @@ import {
 } from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
 import React, {Component} from "react";
+import "../../../custom.scss"; // Standard version
 import * as businesses from "../../store/ducks/business.duck";
 import * as orders from "../../store/ducks/order.duck";
 
