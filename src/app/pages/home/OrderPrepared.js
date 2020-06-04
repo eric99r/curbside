@@ -25,7 +25,7 @@ function OrderPrepared(props) {
           history.push("/orderDetails?orderId=" + order.orderNumber)
         }
       >
-        <Card.Body>
+        <Card.Body style={order.arrived ? {backgroundColor : "#a9d9b4"} : {backgroundColor : ""}}>
           <div className={"d-flex"}>
             <Card.Text className={"mr-5"} style={{ color: "gray" }}>
               {order.pickupTime}

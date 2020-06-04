@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
   PortletBody
 } from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
+import React, {Component} from "react";
+import * as businesses from "../../store/ducks/business.duck";
+import * as orders from "../../store/ducks/order.duck";
 
 import { Button, Form, Card } from "react-bootstrap";
 
@@ -18,37 +20,50 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 
-function Customer() {
-  const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
-    state => ({
-      brandColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.brand"
-      ),
-      dangerColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.danger"
-      ),
-      successColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.success"
-      ),
-      primaryColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.primary"
-      )
-    })
-  );
+class CustomerArrival extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      arrivedLocation: "",
+      carDescription: "",
+      arrivedTime: ""
+    };
+    this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
+    this.handleCustomerArrived = this.handleCustomerArrived.bind(this);
+    this.handleArrivedLocationChange = this.handleArrivedLocationChange.bind(this);
+    this.handleCarDescriptionChange = this.handleCarDescriptionChange.bind(this);
+  }
 
+  handleCustomerArrived(event) {
+    var orderToUpdate = this.thisOrder;
 
+    orderToUpdate.arrived = true;
+    orderToUpdate.location = this.state.arrivedLocation;
+    orderToUpdate.car = this.state.carDescription;
+    
+    this.props.customerArrived(orderToUpdate);
+
+  }
+
+  handleArrivedLocationChange(event) {
+
+    this.setState({arrivedLocation: event.target.value});
+
+  }
+
+  handleCarDescriptionChange(event) {
+
+    this.setState({carDescription: event.target.value});
+
+  }
+
+  render() {
   return (
     <>
       <Card>
         <Card.Body>
-          {/* <!--kt-portlet--height-fluid-half--> */}
-
-          <div className="kt-section">
-            <span className="kt-section__sub">
+          <div class="kt-section">
+            <span classname="kt-section__sub">
 
               <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
               <div className={"d-flex justify-content-center"}>
@@ -63,43 +78,46 @@ function Customer() {
                 <Form.Group controlId="exampleForm.ControlTextarea1">
 
                   <Form.Label>What model/color is your car?</Form.Label>
-                  <Form.Control  as="textarea" rows="3" />
+                  <Form.Control  as="textarea" rows="3" onChange={this.handleCarDescriptionChange}/>
                   <div className="kt-space-20" />
                   <Form.Label>Where are you waiting?</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
+                  <Form.Control as="textarea" rows="3" onChange={this.handleArrivedLocationChange}/>
                 </Form.Group>
                 <div className={"d-flex justify-content-center"}>
-                  <Button type="submit">I'm here!</Button>
+                  <Button onClick={this.handleCustomerArrived}>I'm here!</Button>
                 </div>
               </Form>
             </div>
 
             <div className="kt-separator kt-separator--dashed"></div>
 
-            <h2>Order Summary</h2>
+            
+            <div>
+              <h2>Order Summary:</h2>
+              <h4>{"Order ID: " + this.thisOrder.orderNumber}</h4>
+              <h4>{"Name: " + this.thisOrder.name}</h4>
 
-            <h3>Math Textbook</h3>
-            <h3>History Textbook</h3>
+              {this.thisOrder.items.map((x)=> {
+
+                  return <h6>{x.itemName}</h6>
+
+              })}
+            </div>
 
           </div>
 
         </Card.Body>
       </Card>
-
-
-
-
-
-
-
     </>
   );
+}
 }
 
 function mapStateToProps(state) {
   return {
-    //    business: state.business.store,
-  }
+    business: state.business,
+    orders: state.orders
+  };
 }
 
-export default connect(mapStateToProps)(Customer);
+export default connect(mapStateToProps, orders.actions)(CustomerArrival);

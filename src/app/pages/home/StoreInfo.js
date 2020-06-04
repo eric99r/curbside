@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import StoreHours from "./StoreHours";
 import { Form } from "react-bootstrap";
 
-import {
-  Card
-} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 class StoreInfo extends Component {
 
   constructor(props) {
+    console.log(props);
+    console.log(224);
     super(props);
     this.state = {
       orderId: 0
