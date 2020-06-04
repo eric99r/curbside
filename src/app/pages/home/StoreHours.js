@@ -11,10 +11,10 @@ import {
 import { metronic } from "../../../_metronic";
 
 class StoreHours extends Component{
-
-//export default function StoreHours(props) {
-
+  
   constructor(props){
+    console.log(props);
+  console.log(225);
   super(props);
   this.day = props.day;
   this.curbsideHours = props.curbside;
@@ -29,15 +29,7 @@ class StoreHours extends Component{
 
   this.handleOpenTimeChange = this.handleOpenTimeChange.bind(this);
   this.handleClosedTimeChange = this.handleClosedTimeChange.bind(this);
-  //[this.show, this.setShow] = this.useState(false);
-        
-  
-  //this.setShow = (x) => show=x;
-  // this.handleClose = () => setShow(false);
-  // this.handleShow = () => setShow(true);
 }
-// handleClose = () => setShow(false);
-// handleShow = () => setShow(true);
 
 handleOpenTimeChange(event){
   
@@ -46,6 +38,9 @@ handleOpenTimeChange(event){
                         timeOpen: event.target.value,
                         willNotOpen: false
                       };
+
+  console.log(this.props);
+  console.log(111);
 
   if (this.props.curbside)
     this.props.editCurbsideHours(dayData)

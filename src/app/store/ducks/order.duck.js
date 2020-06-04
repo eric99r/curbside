@@ -13,6 +13,7 @@ import database from '../../database.json';
 // Actions
 export const actionTypes = {
   changeOrderStatus: "[changeOrderStatus] Action",
+  changePickupTime: "[changePickupTime] Action",
 };
 
 //What you'll access in the pages you're mapping the reducer to
@@ -38,6 +39,18 @@ export const reducer = persistReducer(
           return newState;
         }
 
+      case actionTypes.changePickupTime: {
+          const { order } = action.payload;
+          let newState = state;
+            newState =
+            {
+              ...newState,
+                orders: newState.orders.map(o => o.orderNumber === order.orderNumber ? order : o )
+            }            
+            newState.lastUpdated = Date.now();
+          return newState;
+        }
+
       default:
         return state;
     }
@@ -46,7 +59,8 @@ export const reducer = persistReducer(
 
 export const actions = {
   
-  changeOrderStatus: (order) => ({ type: actionTypes.changeOrderStatus, payload: { order } })
+  changeOrderStatus: (order) => ({ type: actionTypes.changeOrderStatus, payload: { order } }),
+  changePickupTime: (order) => ({ type: actionTypes.changePickupTime, payload: { order } })
 };
 
 export function* saga() {
