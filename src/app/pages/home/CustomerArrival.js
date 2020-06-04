@@ -47,8 +47,8 @@ function Customer() {
         <Card.Body>
           {/* <!--kt-portlet--height-fluid-half--> */}
 
-          <div class="kt-section">
-            <span classname="kt-section__sub">
+          <div className="kt-section">
+            <span className="kt-section__sub">
 
               <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
               <div className={"d-flex justify-content-center"}>
