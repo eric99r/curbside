@@ -8,88 +8,74 @@
       {
         "day": "Sunday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
-      },
+        "timeClosed": "5:00 PM"
+          },
       {
         "day": "Monday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Tuesday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Wednesday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Thursday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Friday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Saturday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       }
     ],
     "curbsideHours": [
       {
         "day": "Sunday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Monday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Tuesday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Wednesday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Thursday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Friday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Saturday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       }
     ]
   },
