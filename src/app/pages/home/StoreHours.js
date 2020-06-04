@@ -21,6 +21,7 @@ class StoreHours extends Component {
     }
     this.closeHours = React.createRef();
     this.openHours = React.createRef();
+    
 
  
   }
@@ -90,7 +91,7 @@ class StoreHours extends Component {
 
     let handleSave = (event) => {
       if(this.props.curbside){
-        const dayData = this.props.business.store.curbside.filter((x) => x.day === this.props.day)[0]
+        const dayData = this.props.business.store.curbsideHours.filter((x) => x.day === this.props.day)[0]
         if(this.openHours.current.value !== "Choose...")
           dayData.timeOpen = this.openHours.current.value;
 
