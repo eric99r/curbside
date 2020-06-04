@@ -61,7 +61,7 @@ class StoreHours extends Component {
         if (hours == "0")
           hours = "12"
 
-        var amOrPm = pm ? "pm" : "am";
+        var amOrPm = pm ? " PM" : " AM";
 
         timeString = hours.toString() + ":" + min.toString() + amOrPm;
 
