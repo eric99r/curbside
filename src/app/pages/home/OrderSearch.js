@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, {Component} from "react";
 import { connect } from "react-redux";
 import RunnerNavBar from "../../partials/content/RunnerNavBar";
@@ -10,17 +11,22 @@ class OrderSearch extends Component{
   constructor(props) {
     super(props);
     this.state = {
-     orderId: 0
+     filterCriteria: ''
    }
   }
 
 render(){
   // eslint-disable-next-line eqeqeq
-  const thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == this.state.orderId);
-console.log(this.state.orderId)
-console.log(this.props)
-console.log(thisOrder)
-    
+  const thisOrder = this.props.orders.orders.filter((x) => {
+    const query = this.state.filterCriteria;
+    if(query == ''){
+    return(x.name === query)
+    }                                                    
+    return (
+      x.name.toLowerCase().indexOf(query) >= 0 ||
+      x.orderNumber == query
+    )
+  });    
   return (
     <div>
       <RunnerNavBar />
@@ -29,9 +35,9 @@ console.log(thisOrder)
         <h1>Search Order!</h1>
         <br />
 
-        <input type="number"
-          value={this.state.orderId ? this.state.orderId : ''} 
-          onChange={event => this.setState({ orderId: event.target.value })}/>
+        <input type='alpha'
+          value={this.state.filterCriteria ? this.state.filterCriteria : ''} 
+          onChange={event => this.setState({ filterCriteria: event.target.value })}/>
 
         <h2>OR</h2>
         <PhotoCameraIcon style={{ width: "50px", height: "50px" }} />
