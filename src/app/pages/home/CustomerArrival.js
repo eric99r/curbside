@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
 import { connect, useSelector } from "react-redux";
 import {
   Portlet,
   PortletBody
 } from "../../partials/content/Portlet";
 import { metronic } from "../../../_metronic";
+import React, {Component} from "react";
+import * as businesses from "../../store/ducks/business.duck";
+import * as orders from "../../store/ducks/order.duck";
 
 import { Button, Form, Card } from "react-bootstrap";
 
@@ -18,29 +20,31 @@ import {
   ButtonToolbar
 } from "react-bootstrap";
 
-function Customer() {
-  const { brandColor, dangerColor, successColor, primaryColor } = useSelector(
-    state => ({
-      brandColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.brand"
-      ),
-      dangerColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.danger"
-      ),
-      successColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.success"
-      ),
-      primaryColor: metronic.builder.selectors.getConfig(
-        state,
-        "colors.state.primary"
-      )
-    })
-  );
+class CustomerArrival extends Component{
+  constructor(props) {
+    console.log(props);
+    console.log(2288);
+    super(props);
+    // this.state = {
+      
+    // };
+    this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
+    //this.thisOrder = props.orders.orders.filter((x)=>{x.orderNumber==2})[0];
 
+    this.handleCustomerArrived = this.handleCustomerArrived.bind(this);
+  }
 
+  handleCustomerArrived(event) {
+
+    var orderToUpdate = this.thisOrder;
+
+    orderToUpdate.arrived = true;
+    console.log(this.props);
+    
+    this.props.customerArrived(orderToUpdate);
+
+  }
+  render() {
   return (
     <>
       <Card>
@@ -69,7 +73,7 @@ function Customer() {
                   <Form.Control as="textarea" rows="3" />
                 </Form.Group>
                 <div className={"d-flex justify-content-center"}>
-                  <Button type="submit">I'm here!</Button>
+                  <Button onClick={this.handleCustomerArrived}>I'm here!</Button>
                 </div>
               </Form>
             </div>
@@ -95,11 +99,13 @@ function Customer() {
     </>
   );
 }
+}
 
 function mapStateToProps(state) {
   return {
-    //    business: state.business.store,
-  }
+    business: state.business,
+    orders: state.orders
+  };
 }
 
-export default connect(mapStateToProps)(Customer);
+export default connect(mapStateToProps, orders.actions)(CustomerArrival);
