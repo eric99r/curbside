@@ -19,7 +19,7 @@ class HeaderMobile extends React.Component {
       asideDisplay,
       headerMenuSelfDisplay,
       headerMobileCssClasses,
-      headerMobileAttributes
+      headerMobileAttributes,
     } = this.props;
     return (
       <div
@@ -27,13 +27,13 @@ class HeaderMobile extends React.Component {
         className={`kt-header-mobile ${headerMobileCssClasses}`}
         {...headerMobileAttributes}
       >
-        <div className="kt-header-mobile__logo">
+        <div className="kt-header-mobile__logo pl-3">
           <Link to="/">
             <img alt="logo" src={headerLogo} />
           </Link>
         </div>
 
-        <div className="kt-header-mobile__toolbar">
+        <div className="kt-header-mobile__toolbar pr-3">
           {headerMenuSelfDisplay && (
             <button
               className="kt-header-mobile__toggler"
@@ -48,7 +48,7 @@ class HeaderMobile extends React.Component {
   }
 }
 
-const mapStateToProps = store => ({
+const mapStateToProps = (store) => ({
   headerLogo: builder.selectors.getStickyLogo(store),
   asideDisplay: objectPath.get(
     store.builder.layoutConfig,
@@ -60,15 +60,15 @@ const mapStateToProps = store => ({
   toggleOptions: {
     target: "body",
     targetState: "kt-header__topbar--mobile-on",
-    togglerState: "kt-header-mobile__toolbar-topbar-toggler--active"
+    togglerState: "kt-header-mobile__toolbar-topbar-toggler--active",
   },
   headerMobileCssClasses: builder.selectors.getClasses(store, {
     path: "header_mobile",
-    toString: true
+    toString: true,
   }),
   headerMobileAttributes: builder.selectors.getAttributes(store, {
-    path: "aside_menu"
-  })
+    path: "aside_menu",
+  }),
 });
 
 export default connect(mapStateToProps)(HeaderMobile);
