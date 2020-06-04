@@ -12,8 +12,7 @@ function OrderQueue(props) {
     (status) => status.orderStatus === "In Queue"
   );
 
-  useEffect(() => {
-  }, [order, order.lastUpdated]);
+  useEffect(() => {}, [order, order.lastUpdated]);
 
   const allorders = orders.map((order) => {
     return (
@@ -23,6 +22,7 @@ function OrderQueue(props) {
         onClick={() =>
           history.push("/orderDetails?orderId=" + order.orderNumber)
         }
+        className="mr-5"
       >
         <Card.Body>
           <div className={"d-flex"}>
@@ -46,7 +46,7 @@ function OrderQueue(props) {
       <div>
         <RunnerNavBar />
 
-        <h1 className={"text-center ml-5 pt-3"} style={{ color: "gray" }}>
+        <h1 className={"text-center ml-3 pt-3"} style={{ color: "gray" }}>
           Orders In Queue
         </h1>
         <ul>{allorders}</ul>
