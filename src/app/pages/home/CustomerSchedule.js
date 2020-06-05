@@ -25,7 +25,6 @@ class CustomerSchedule extends Component{
     super(props);
 
     var dayOfWeek = this.dayFromDate(this.props.orders.orders.filter((x) => x.orderNumber == 2)[0].pickupDate);
-    console.log(dayOfWeek);
 
     this.state={
       day : dayOfWeek,
@@ -214,7 +213,7 @@ class CustomerSchedule extends Component{
 
               </Form.Group>
               <div className={"d-flex justify-content-center"}>
-                <Button onClick={() => { this.props.history.push('/customerArrival') }}>Submit</Button>
+                <Button onClick={() => { this.props.history.push('/customerWaiting') }}>Submit</Button>
               </div>
             </Form>
 

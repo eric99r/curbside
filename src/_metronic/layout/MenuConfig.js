@@ -8,6 +8,11 @@ export default {
         page: "customerSchedule",
       },
       {
+        title: "Customer Waiting",
+        root: true,
+        page: "customerWaiting",
+      },
+      {
         title: "Customer Arrival",
         root: true,
         page: "customerArrival",
@@ -36,6 +41,11 @@ export default {
         title: "Customer Schedule",
         root: true,
         page: "customerSchedule",
+      },
+      {
+        title: "Customer Waiting",
+        root: true,
+        page: "customerWaiting",
       },
       {
         title: "Customer Arrival",

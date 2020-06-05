@@ -28,7 +28,8 @@ class CustomerArrival extends Component{
     this.state = {
       arrivedLocation: "",
       carDescription: "",
-      arrivedTime: ""
+      arrivedTime: "",
+      submitted: false
     };
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
     this.handleCustomerArrived = this.handleCustomerArrived.bind(this);
@@ -45,6 +46,8 @@ class CustomerArrival extends Component{
     
     this.props.customerArrived(orderToUpdate);
 
+    this.setState({submitted: true});
+
   }
 
   handleArrivedLocationChange(event) {
@@ -59,6 +62,25 @@ class CustomerArrival extends Component{
 
   }
 
+  orderStatusDescription(orderStatus) {
+    switch(orderStatus){
+      case "In Queue":
+      case "Prepared":
+        return "Your order will be ready soon.";
+
+      case "Running":
+        return "Your order is ready! We're on our way to deliver it to you.";
+
+      case "Delivered":
+        return "We've delivered you your order. Thank you for shopping with us!";
+
+      default:
+        return "";
+
+    }
+
+  }
+
   render() {
   return (
     <>
@@ -68,13 +90,31 @@ class CustomerArrival extends Component{
             <span className="kt-section__sub">
 
               <h1 className={"d-flex justify-content-center"}>Curbside Pickup</h1>
-              <div className={"d-flex justify-content-center"}>
-                <p >Your order is ready!</p>
+
+              </span>
+              {this.state.submitted ? 
+              
+              <div>
+                <div style={{marginTop: "1rem"}} className={"d-flex justify-content-center"}>
+                  <h3 className={"text-center"}>Thank you!</h3>
+                </div>
+                <div className={"d-flex justify-content-center"}></div>
+                <div style={{marginTop: "5rem", marginBottom: "5rem"}} className={"d-flex justify-content-center"}>
+                  <h5 className={"text-center"}>
+                    {
+                      this.orderStatusDescription(this.thisOrder.orderStatus)
+                    }
+                  </h5>
+                </div>
               </div>
+              
+              :
+
+              <div>
               <div className={"d-flex justify-content-center"}>
                 <p >Please park and give us some details about how to find you.</p>
               </div>
-            </span>
+            
             <div className={"d-flex justify-content-center"}>
               <Form style={{width: "80%"}}>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -90,6 +130,8 @@ class CustomerArrival extends Component{
                 </div>
               </Form>
             </div>
+            </div>  
+          }
 
             <div className="kt-separator kt-separator--dashed"></div>
 
