@@ -133,11 +133,12 @@ class CustomerSchedule extends Component{
   }
 
   handleDropdownSelection = (selection, dayOrTime) => {
+    var orderToUpdate = this.thisOrder;
+    
     if (dayOrTime === "date"){
       this.setState({pickupDateSelection: selection,
                     pickupTimeSelection: null});
 
-      var orderToUpdate = this.thisOrder;
 
       orderToUpdate.pickupDate = selection;
       
@@ -152,8 +153,6 @@ class CustomerSchedule extends Component{
     if (dayOrTime === "time"){
       this.setState({pickupTimeSelection: selection});    
       
-      var orderToUpdate = this.thisOrder;
-
       orderToUpdate.pickupTime = selection;
       
       this.props.changePickupTime(orderToUpdate);
