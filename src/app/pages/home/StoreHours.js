@@ -95,7 +95,6 @@ class StoreHours extends Component {
     };
 
     let handleSave = (event) => {
-      console.log(this.props);
       if(this.props.curbside){
         const dayData = this.props.business.store.curbsideHours.filter((x) => x.day === this.props.day)[0]
         if(this.state.openSelection !== null)
@@ -151,7 +150,7 @@ class StoreHours extends Component {
 
                     <Dropdown.Menu  style={{maxHeight: "20em", overflowY: "auto"}}>
                     {timeBuckets.map((bucket) => {
-                      return <Dropdown.Item key={bucket} value="tester" onClick={()=>this.handleDropdownSelection(bucket, "open")}>{bucket}</Dropdown.Item>;
+                      return <Dropdown.Item key={bucket} onClick={()=>this.handleDropdownSelection(bucket, "open")}>{bucket}</Dropdown.Item>;
                     })}
                     </Dropdown.Menu>
                   </Dropdown>
@@ -164,7 +163,7 @@ class StoreHours extends Component {
 
                     <Dropdown.Menu ref={this.closeHours} style={{maxHeight: "20em", overflowY: "auto"}}>
                     {timeBuckets.map((bucket) => {
-                      return <Dropdown.Item key={bucket} value="tester" onClick={()=>this.handleDropdownSelection(bucket, "close")}>{bucket}</Dropdown.Item>;
+                      return <Dropdown.Item key={bucket} onClick={()=>this.handleDropdownSelection(bucket, "close")}>{bucket}</Dropdown.Item>;
                     })}
                     </Dropdown.Menu>
                   </Dropdown>
