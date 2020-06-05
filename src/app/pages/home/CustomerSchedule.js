@@ -83,8 +83,8 @@ class CustomerSchedule extends Component{
     //increments of 15min
 
     //Input
-    var startTime = "2000-01-01 04:30:00"
-    var endTime = "2000-01-01 23:30:00"
+    var startTime = "2000-01-01 00:00:00"
+    var endTime = "2000-01-01 23:45:00"
 
     //Parse In
     var parseIn = function (date_time) {
@@ -190,6 +190,10 @@ class CustomerSchedule extends Component{
                     <Dropdown.Item onClick={()=>this.handleDropdownSelection("Monday, June 1", "date")}>Monday, June 1</Dropdown.Item>
                     <Dropdown.Item onClick={()=>this.handleDropdownSelection("Tuesday, June 2", "date")}>Tuesday, June 2</Dropdown.Item>
                     <Dropdown.Item onClick={()=>this.handleDropdownSelection("Wednesday, June 3", "date")}>Wednesday, June 3</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Thursday, June 4", "date")}>Thursday, June 4</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Friday, June 5", "date")}>Friday, June 5</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Saturday, June 6", "date")}>Saturday, June 6</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Sunday, June 7", "date")}>Sunday, June 7</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 

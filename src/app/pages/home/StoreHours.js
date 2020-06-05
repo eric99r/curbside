@@ -35,8 +35,8 @@ class StoreHours extends Component {
     //increments of 15min
 
     //Input
-    var startTime = "2000-01-01 04:30:00"
-    var endTime = "2000-01-01 23:30:00"
+    var startTime = "2000-01-01 00:00:00"
+    var endTime = "2000-01-01 23:45:00"
 
     //Parse In
     var parseIn = function (date_time) {
@@ -50,7 +50,7 @@ class StoreHours extends Component {
     //make list
     var getTimeIntervals = function (time1, time2) {
       var arr = [];
-      while (time1 < time2) {
+      while (time1 <= time2) {
 
         var timeString = ""
 
