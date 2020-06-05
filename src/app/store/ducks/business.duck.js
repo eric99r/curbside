@@ -14,7 +14,8 @@ import database from '../../database.json';
 export const actionTypes = {
   editStoreHours: "[EditStoreHours] Action",
   editCurbsideHours: "[EditCurbsideHours] Action",
-  changeOwner: "[ChangeOwner] Action"
+  changeOwner: "[ChangeOwner] Action",
+  toggleCurbsideHoursDifferentFromStore: "[ToggleCurbsideHoursDifferentFromStore] Action"
 };
 
 //What you'll access in the pages you're mapping the reducer to
@@ -27,23 +28,10 @@ export const reducer = persistReducer(
   { storage, key: "demo1-auth", whitelist: ["user", "authToken"] },
   (state = initialState, action) => {
     switch (action.type) {      
+      
       case actionTypes.editCurbsideHours: {
         const { day } = action.payload;
 
-        const oldDay = state.store.curbsideHours.filter((d) => d.day === day.day)[0]
-        console.log(oldDay);
-        console.log(78944);
-        if (!('timeOpen' in day))
-          {
-            day.timeOpen = oldDay.timeOpen;
-          }
-
-        if (!('timeClosed' in day))
-          {
-            day.timeClosed = oldDay.timeClosed;
-          }
-
-        console.log(day);
         let newState = state;
           newState =
           {
@@ -56,22 +44,9 @@ export const reducer = persistReducer(
           newState.lastUpdated = Date.now();
         return newState;
       }     
-      //BEST Example of changing a value in an array (By Object) 
+
       case actionTypes.editStoreHours: {
           const { day } = action.payload;
-
-          const oldDay = state.store.storeHours.filter((d) => d.day === day.day)[0]
-          console.log(oldDay);
-          console.log(789);
-          if (!('timeOpen' in day))
-            {
-              day.timeOpen = oldDay.timeOpen;
-            }
-
-          if (!('timeClosed' in day))
-            {
-              day.timeClosed = oldDay.timeClosed;
-            }
 
           let newState = state;
             newState =
@@ -86,7 +61,6 @@ export const reducer = persistReducer(
           return newState;
         }     
 
-      //BEST Example of changing a value (By Object)  
       case actionTypes.changeOwner: {
         const { owner } = action.payload;
         let newState = state;
@@ -101,6 +75,20 @@ export const reducer = persistReducer(
         return newState;
       }
 
+      case actionTypes.toggleCurbsideHoursDifferentFromStore: {
+        let newState = state;
+          newState =
+          {
+            ...newState,
+            store: {
+              ...newState.store, 
+              curbsideHoursDifferentFromStore: !state.store.curbsideHoursDifferentFromStore
+            }
+          }
+          newState.lastUpdated = Date.now();
+        return newState;
+      }
+
       default:
         return state;
     }
@@ -109,10 +97,14 @@ export const reducer = persistReducer(
 
 export const actions = {
   //Multiple parameter actions
-  editCurbsideHours: (day, startTime) => ({ type: actionTypes.editCurbsideHours, payload: { day, startTime } }),
+  editCurbsideHours: (day) => ({ type: actionTypes.editCurbsideHours, payload: { day } }),
+ 
   //Single paramater actions
   editStoreHours: day => ({ type: actionTypes.editStoreHours, payload: { day } }),
-  changeOwner: owner => ({ type: actionTypes.changeOwner, payload: { owner } })
+  changeOwner: owner => ({ type: actionTypes.changeOwner, payload: { owner } }),
+
+  //Zero parameter actions
+  toggleCurbsideHoursDifferentFromStore: () => ({ type: actionTypes.toggleCurbsideHoursDifferentFromStore })
 };
 
 export function* saga() {

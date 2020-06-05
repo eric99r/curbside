@@ -4,92 +4,79 @@
     "owner": "James",
     "location": "College Station, TX",
     "curbsideLocation": "In front of Circle Drive",
+    "curbsideHoursDifferentFromStore": true,
     "storeHours": [
       {
         "day": "Sunday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
-      },
+        "timeClosed": "5:00 PM"
+          },
       {
         "day": "Monday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Tuesday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Wednesday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Thursday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Friday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Saturday",
         "timeOpen": "9:00 AM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       }
     ],
     "curbsideHours": [
       {
         "day": "Sunday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Monday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Tuesday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Wednesday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Thursday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Friday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       },
       {
         "day": "Saturday",
         "timeOpen": "1:45 PM",
-        "timeClosed": "5:00 PM",
-        "willNotOpen": false
+        "timeClosed": "5:00 PM"
       }
     ]
   },
@@ -97,6 +84,7 @@
     {
       "orderNumber": 1,
       "orderStatus": "In Queue",
+      "arrived": false,
       "pickupTime": "3:45pm",
       "timeCompleted": "",
       "name": "Michael",
@@ -119,7 +107,9 @@
     {
       "orderNumber": 2,
       "orderStatus": "In Queue",
-      "pickupTime": "2:45pm",
+      "arrived": false,
+      "pickupTime": "",
+      "pickupDate": "Monday, June 1",
       "timeCompleted": "",
       "name": "Eric",
       "car": "",
@@ -141,6 +131,7 @@
     {
       "orderNumber": 3,
       "orderStatus": "Prepared",
+      "arrived": true,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Shaquille O'Neal",
@@ -163,6 +154,7 @@
     {
       "orderNumber": 4,
       "orderStatus": "Prepared",
+      "arrived": false,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Derrick Rose",
@@ -185,6 +177,7 @@
     {
       "orderNumber": 5,
       "orderStatus": "Running",
+      "arrived": true,
       "pickupTime": "1:45pm",
       "timeCompleted": "",
       "name": "Ron Artest",
@@ -207,6 +200,7 @@
     {
       "orderNumber": 6,
       "orderStatus": "Running",
+      "arrived": true,
       "pickupTime": "2:00pm",
       "timeCompleted": "",
       "name": "LeBron James",
@@ -229,6 +223,7 @@
     {
       "orderNumber": 7,
       "orderStatus": "Delivered",
+      "arrived": true,
       "pickupTime": "1:00pm",
       "timeCompleted": "1:29",
       "name": "Giannis A.",
@@ -251,6 +246,7 @@
     {
       "orderNumber": 8,
       "orderStatus": "Delivered",
+      "arrived": true,
       "pickupTime": "1:00pm",
       "timeCompleted": "1:29pm",
       "name": "Blake Griffin",

@@ -3,32 +3,32 @@ export default {
     self: {},
     items: [
       {
-        title: "CustomerSchedule",
+        title: "Customer Schedule",
         root: true,
         page: "customerSchedule",
       },
       {
-        title: "CustomerArrival",
+        title: "Customer Waiting",
+        root: true,
+        page: "customerWaiting",
+      },
+      {
+        title: "Customer Arrival",
         root: true,
         page: "customerArrival",
       },
       {
-        title: "TestPage",
-        root: true,
-        page: "TestPage",
-      },
-      {
-        title: "StoreInfo",
+        title: "Store Info",
         root: true,
         page: "storeinfo",
       },
       {
-        title: "OrderQueue",
+        title: "Order Queue",
         root: true,
         page: "OrderQueue"
       },
       {
-        title: "OrderSearch",
+        title: "Order Search",
         root: true,
         page: "OrderSearch"
       }
@@ -38,32 +38,32 @@ export default {
     self: {},
     items: [
       {
-        title: "CustomerSchedule",
+        title: "Customer Schedule",
         root: true,
         page: "customerSchedule",
       },
       {
-        title: "CustomerArrival",
+        title: "Customer Waiting",
+        root: true,
+        page: "customerWaiting",
+      },
+      {
+        title: "Customer Arrival",
         root: true,
         page: "customerArrival",
       },
       {
-        title: "TestPage",
-        root: true,
-        page: "TestPage",
-      },
-      {
-        title: "StoreInfo",
+        title: "Store Info",
         root: true,
         page: "storeinfo",
       },
       {
-        title: "OrderQueue",
+        title: "Order Queue",
         root: true,
         page: "OrderQueue"
       },
       {
-        title: "OrderSearch",
+        title: "Order Search",
         root: true,
         page: "OrderSearch"
       }
