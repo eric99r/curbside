@@ -1,16 +1,14 @@
 /* eslint-disable eqeqeq */
 
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button, Form, Modal, Dropdown } from "react-bootstrap";
 
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { connect, useSelector } from "react-redux";
 import * as businesses from "../../store/ducks/business.duck";
+import { truncateSync } from "fs";
 
 class StoreHours extends Component {
-
-  //export default function StoreHours(props) {
-
   constructor(props) {
     super(props);
     this.day = props.day;
@@ -18,14 +16,21 @@ class StoreHours extends Component {
     this.state = {
       business: props.business,
       show: false,
+      openSelection: null,
+      closeSelection: null
     }
     this.closeHours = React.createRef();
     this.openHours = React.createRef();
     
-
+    this.handleDropdownSelection = this.handleDropdownSelection.bind(this);
  
   }
-
+  handleDropdownSelection = (selection, openOrClose) => {
+    if (openOrClose === "open")
+      this.setState({openSelection: selection});
+    if (openOrClose === "close")
+      this.setState({closeSelection: selection});
+  }
   timeBuckets() {
     //increments of 15min
 
@@ -90,24 +95,25 @@ class StoreHours extends Component {
     };
 
     let handleSave = (event) => {
+      console.log(this.props);
       if(this.props.curbside){
         const dayData = this.props.business.store.curbsideHours.filter((x) => x.day === this.props.day)[0]
-        if(this.openHours.current.value !== "Choose...")
-          dayData.timeOpen = this.openHours.current.value;
+        if(this.state.openSelection !== null)
+          dayData.timeOpen = this.state.openSelection;
 
-          if(this.closeHours.current.value !== "Choose...")
-          dayData.timeClosed = this.closeHours.current.value;
+        if(this.state.closeSelection !== null)
+          dayData.timeClosed = this.state.closeSelection;
 
         this.props.editCurbsideHours(dayData)
 
       }
       else{
         const dayData = this.props.business.store.storeHours.filter((x) => x.day === this.props.day)[0];       
-        if(this.openHours.current.value !== "Choose...")
-        dayData.timeOpen = this.openHours.current.value;
+        if(this.state.openSelection !== null)
+          dayData.timeOpen = this.state.openSelection;
 
-        if(this.closeHours.current.value !== "Choose...")
-        dayData.timeClosed = this.closeHours.current.value;
+        if(this.state.closeSelection !== null)
+          dayData.timeClosed = this.state.closeSelection;
 
         this.props.editStoreHours(dayData)
 
@@ -121,7 +127,6 @@ class StoreHours extends Component {
     return (
       <tr>
         <td>
-
           <div>
             <Button variant="primary" onClick={handleShow} className={"w-100 p-3"}>
               {this.props.day}
@@ -139,31 +144,40 @@ class StoreHours extends Component {
 
                 <Form>
                   <Form.Label>Open</Form.Label>
-                  <Form.Control as="select" ref={this.openHours} >
-                    <option>Choose...</option>
+                  <Dropdown style={{marginLeft: "1.5em"}}>
+                    <Dropdown.Toggle id="dropdown-basic">
+                      {this.state.openSelection ? this.state.openSelection : "Choose..."}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu  style={{maxHeight: "20em", overflowY: "auto"}}>
                     {timeBuckets.map((bucket) => {
-                      return <option key={bucket}>{bucket}</option>;
-                    })
-                    }
-                  </Form.Control>
+                      return <Dropdown.Item key={bucket} value="tester" onClick={()=>this.handleDropdownSelection(bucket, "open")}>{bucket}</Dropdown.Item>;
+                    })}
+                    </Dropdown.Menu>
+                  </Dropdown>
+
                   <Form.Label>Close</Form.Label>
-                  <Form.Control as="select" ref={this.closeHours} >
-                    <option>Choose...</option>
+                  <Dropdown style={{marginLeft: "1.5em"}}>
+                    <Dropdown.Toggle id="dropdown-basic">
+                      {this.state.closeSelection ? this.state.closeSelection : "Choose..."}
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu ref={this.closeHours} style={{maxHeight: "20em", overflowY: "auto"}}>
                     {timeBuckets.map((bucket) => {
-                      return <option key={bucket}>{bucket}</option>;
-                    })
-                    }
-                  </Form.Control>
-                </Form>
+                      return <Dropdown.Item key={bucket} value="tester" onClick={()=>this.handleDropdownSelection(bucket, "close")}>{bucket}</Dropdown.Item>;
+                    })}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  </Form>
 
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose} >
                   Close
-                          </Button>
+                </Button>
                 <Button variant="primary" onClick={handleSave} >
                   Save Changes
-                          </Button>
+                </Button>
               </Modal.Footer>
             </Modal>
           </div>
@@ -188,6 +202,5 @@ function mapStateToProps(state) {
     orders: state.orders
   };
 }
-
 
 export default connect(mapStateToProps, businesses.actions)(StoreHours);
