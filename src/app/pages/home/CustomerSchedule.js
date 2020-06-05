@@ -24,10 +24,13 @@ class CustomerSchedule extends Component{
   constructor(props) {
     super(props);
 
+    var dayOfWeek = this.dayFromDate(this.props.orders.orders.filter((x) => x.orderNumber == 2)[0].pickupDate);
+    console.log(dayOfWeek);
+
     this.state={
-      day : "Monday",
-      timeOpen : props.business.store.curbsideHours.filter((x) => x.day == "Monday")[0].timeOpen,
-      timeClosed : props.business.store.curbsideHours.filter((x) => x.day == "Monday")[0].timeClosed,
+      day : dayOfWeek,
+      timeOpen : props.business.store.curbsideHours.filter((x) => x.day == dayOfWeek)[0].timeOpen,
+      timeClosed : props.business.store.curbsideHours.filter((x) => x.day == dayOfWeek)[0].timeClosed,
       pickupTimeSelection : this.props.orders.orders.filter((x) => x.orderNumber == 2)[0].pickupTime,
       pickupDateSelection : this.props.orders.orders.filter((x) => x.orderNumber == 2)[0].pickupDate,
     }
@@ -36,6 +39,13 @@ class CustomerSchedule extends Component{
     this.handlePickupTimeSubmit = this.handlePickupTimeSubmit.bind(this);
 
     this.timeBuckets = this.timeBuckets();
+  }
+
+  dayFromDate(date) {
+    //assumes date is in format: Monday, June 1
+    //returns day: Monday
+
+    return date.substring(0, date.indexOf(','));
   }
 
   handlePickupTimeSubmit(event) {
@@ -125,13 +135,20 @@ class CustomerSchedule extends Component{
 
   handleDropdownSelection = (selection, dayOrTime) => {
     if (dayOrTime === "date"){
-      this.setState({pickupDateSelection: selection});
+      this.setState({pickupDateSelection: selection,
+                    pickupTimeSelection: null});
 
       var orderToUpdate = this.thisOrder;
 
       orderToUpdate.pickupDate = selection;
       
       this.props.changePickupTime(orderToUpdate);
+
+      var dayOfWeek = this.dayFromDate(selection);
+
+      this.setState({day : dayOfWeek,
+                    timeOpen : this.props.business.store.curbsideHours.filter((x) => x.day == dayOfWeek)[0].timeOpen,
+                    timeClosed : this.props.business.store.curbsideHours.filter((x) => x.day == dayOfWeek)[0].timeClosed});
     }
     if (dayOrTime === "time"){
       this.setState({pickupTimeSelection: selection});    
@@ -171,8 +188,8 @@ class CustomerSchedule extends Component{
 
                   <Dropdown.Menu  style={{maxHeight: "20em", overflowY: "auto"}}>
                     <Dropdown.Item onClick={()=>this.handleDropdownSelection("Monday, June 1", "date")}>Monday, June 1</Dropdown.Item>
-                    {/* <Dropdown.Item onClick={()=>this.handleDropdownSelection("Tuesday, June 2", "date")}>Tuesday, June 2</Dropdown.Item>
-                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Wednesday, June 3", "date")}>Wednesday, June 3</Dropdown.Item> */}
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Tuesday, June 2", "date")}>Tuesday, June 2</Dropdown.Item>
+                    <Dropdown.Item onClick={()=>this.handleDropdownSelection("Wednesday, June 3", "date")}>Wednesday, June 3</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
 
