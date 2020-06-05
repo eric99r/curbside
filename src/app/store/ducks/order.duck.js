@@ -14,6 +14,7 @@ import database from '../../database.json';
 export const actionTypes = {
   changeOrderStatus: "[changeOrderStatus] Action",
   changePickupTime: "[changePickupTime] Action",
+  changeCustomerPhase: "[changeCustomerPhase] Action",
   customerArrived: "[customerArrived] Action"
 };
 
@@ -54,6 +55,7 @@ export const reducer = persistReducer(
 
       case actionTypes.customerArrived: {
           const { order } = action.payload;
+          order.customerPhase = "submitted location";
           let newState = state;
             newState =
             {
@@ -63,6 +65,20 @@ export const reducer = persistReducer(
             newState.lastUpdated = Date.now();
           return newState;
         }
+
+      case actionTypes.changeCustomerPhase: {
+        const { order } = action.payload;
+        console.log(order);
+        console.log(211);
+        let newState = state;
+          newState =
+          {
+            ...newState,
+              orders: newState.orders.map(o => o.orderNumber === order.orderNumber ? order : o )
+          }            
+          newState.lastUpdated = Date.now();
+        return newState;
+      }
 
       default:
         return state;
@@ -74,6 +90,7 @@ export const actions = {
   
   changeOrderStatus: (order) => ({ type: actionTypes.changeOrderStatus, payload: { order } }),
   changePickupTime: (order) => ({ type: actionTypes.changePickupTime, payload: { order } }),
+  changeCustomerPhase: (order) => ({ type: actionTypes.changeCustomerPhase, payload: { order } }),
   customerArrived: (order) => ({ type: actionTypes.customerArrived, payload: { order } })
 };
 

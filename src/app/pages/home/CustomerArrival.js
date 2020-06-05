@@ -25,13 +25,16 @@ import {
 class CustomerArrival extends Component{
   constructor(props) {
     super(props);
+
+    this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];    
+
     this.state = {
       arrivedLocation: "",
       carDescription: "",
       arrivedTime: "",
-      submitted: false
+      submitted: this.thisOrder.customerPhase == "submitted location"
     };
-    this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
+
     this.handleCustomerArrived = this.handleCustomerArrived.bind(this);
     this.handleArrivedLocationChange = this.handleArrivedLocationChange.bind(this);
     this.handleCarDescriptionChange = this.handleCarDescriptionChange.bind(this);

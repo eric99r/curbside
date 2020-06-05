@@ -3,20 +3,25 @@ export default {
     self: {},
     items: [
       {
-        title: "Customer Schedule",
+        title: "Customer",
         root: true,
         page: "customerSchedule",
       },
-      {
-        title: "Customer Waiting",
-        root: true,
-        page: "customerWaiting",
-      },
-      {
-        title: "Customer Arrival",
-        root: true,
-        page: "customerArrival",
-      },
+      // {
+      //   title: "Customer Schedule",
+      //   root: true,
+      //   page: "customerSchedule",
+      // },
+      // {
+      //   title: "Customer Waiting",
+      //   root: true,
+      //   page: "customerWaiting",
+      // },
+      // {
+      //   title: "Customer Arrival",
+      //   root: true,
+      //   page: "customerArrival",
+      // },
       {
         title: "Store Info",
         root: true,
@@ -38,20 +43,25 @@ export default {
     self: {},
     items: [
       {
-        title: "Customer Schedule",
+        title: "Customer",
         root: true,
         page: "customerSchedule",
       },
-      {
-        title: "Customer Waiting",
-        root: true,
-        page: "customerWaiting",
-      },
-      {
-        title: "Customer Arrival",
-        root: true,
-        page: "customerArrival",
-      },
+      // {
+      //   title: "Customer Schedule",
+      //   root: true,
+      //   page: "customerSchedule",
+      // },
+      // {
+      //   title: "Customer Waiting",
+      //   root: true,
+      //   page: "customerWaiting",
+      // },
+      // {
+      //   title: "Customer Arrival",
+      //   root: true,
+      //   page: "customerArrival",
+      // },
       {
         title: "Store Info",
         root: true,

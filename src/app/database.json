@@ -107,6 +107,7 @@
     {
       "orderNumber": 2,
       "orderStatus": "In Queue",
+      "customerPhase": "schedule",
       "arrived": false,
       "pickupTime": "",
       "pickupDate": "Monday, June 1",
