@@ -1,8 +1,7 @@
 /* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 
 import { Button, Form, Modal, Dropdown } from "react-bootstrap";
-
-/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { connect, useSelector } from "react-redux";
 import * as businesses from "../../store/ducks/business.duck";
