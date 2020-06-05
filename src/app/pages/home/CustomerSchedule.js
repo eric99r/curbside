@@ -174,6 +174,8 @@ class CustomerSchedule extends Component{
       case "submitted location":
         this.props.history.push('/customerArrival');
         break;
+        default:
+          break;
     }
   }
 

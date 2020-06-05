@@ -32,7 +32,6 @@ class CustomerWaiting extends Component{
   }
 
   handleSubmitClick(){
-    console.log(orderToUpdate);
     var orderToUpdate = this.thisOrder;
     orderToUpdate.customerPhase = "arrival";
     this.props.changeCustomerPhase(orderToUpdate);
