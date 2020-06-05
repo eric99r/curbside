@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, {Component} from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import {
   Portlet,
   PortletBody
@@ -36,6 +37,8 @@ class CustomerSchedule extends Component{
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
 
     this.handlePickupTimeSubmit = this.handlePickupTimeSubmit.bind(this);
+
+    this.handleSubmitClick = this.handleSubmitClick.bind(this);
 
     this.timeBuckets = this.timeBuckets();
   }
@@ -159,10 +162,37 @@ class CustomerSchedule extends Component{
     }
   }
 
+  navigateCustomer(customerPhase)
+  {
+    switch (customerPhase) {
+      case "schedule":
+        break;
+      case "waiting":
+        this.props.history.push('/customerWaiting');
+        break;
+      case "arrival":
+      case "submitted location":
+        this.props.history.push('/customerArrival');
+        break;
+    }
+  }
+
+  handleSubmitClick(){
+    if (this.state.pickupDateSelection && this.state.pickupTimeSelection)
+    {
+      var orderToUpdate = this.thisOrder;
+      orderToUpdate.customerPhase = "waiting";
+      this.props.changeCustomerPhase(orderToUpdate);
+      this.props.history.push('/customerWaiting');
+    }
+  }
+
   render(){
     
   return (
     <>
+      {this.navigateCustomer(this.props.orders.orders.filter((x) => x.orderNumber == 2)[0].customerPhase)}
+
       <Card>
         <Card.Body>
           <div >
@@ -212,7 +242,7 @@ class CustomerSchedule extends Component{
 
               </Form.Group>
               <div className={"d-flex justify-content-center"}>
-                <Button onClick={() => { this.props.history.push('/customerWaiting') }}>Submit</Button>
+                <Button onClick={this.handleSubmitClick}>Submit</Button>
               </div>
             </Form>
 

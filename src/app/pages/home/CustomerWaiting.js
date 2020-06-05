@@ -28,6 +28,16 @@ class CustomerWaiting extends Component{
     this.state={}
     this.thisOrder = this.props.orders.orders.filter((x) => x.orderNumber == 2)[0];
 
+    this.handleSubmitClick = this.handleSubmitClick.bind(this);
+  }
+
+  handleSubmitClick(){
+    console.log(orderToUpdate);
+    var orderToUpdate = this.thisOrder;
+    orderToUpdate.customerPhase = "arrival";
+    this.props.changeCustomerPhase(orderToUpdate);
+    console.log(orderToUpdate);
+    this.props.history.push('/customerArrival');
   }
 
   render(){
@@ -58,7 +68,7 @@ class CustomerWaiting extends Component{
             <div  className={"d-flex justify-content-center"}></div>
 
             <div  className={"d-flex justify-content-center"}>
-              <Button style={{marginTop: "2rem"}} className={"d-flex justify-content-center"} onClick={() => { this.props.history.push('/customerArrival') }}>
+              <Button style={{marginTop: "2rem"}} className={"d-flex justify-content-center"} onClick={this.handleSubmitClick}>
                 Click here when you've arrived.
               </Button>
             </div>
